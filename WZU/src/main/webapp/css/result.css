@@ -1,0 +1,485 @@
+body
+{
+	position: relative;
+	background: url(../img/curriculum_bg.png) 0px 135px no-repeat;
+	background-size: 100% 100% ;
+}
+
+.bg_img_left
+{
+	position: absolute;
+	top: 135px;
+	left: 0px;
+	z-index: 1;
+}
+
+.bg_img_right
+{
+	position: absolute;
+	bottom: 100px;
+	right: 0px;
+	z-index: 2;
+}
+
+.header_nav
+{
+	background:url(../img/header_nav_bg.jpg) no-repeat;
+	background-position:100% 100% ;
+}
+
+p{
+	margin: 0px;
+}
+
+/*-----------------details start------------------*/
+.details_content
+{
+	position: relative;
+	width: 1200px;
+	margin: 0px auto;
+	padding-bottom: 50px;
+	height: 100%;
+	overflow: hidden;
+	background-color: #FFFFFF;
+	z-index: 5;
+}
+
+.details_left
+{
+	width: 210px;
+	float: left;
+	margin-top:10px ;
+	margin-left: 10px;
+}
+
+.dl_title
+{
+	margin-bottom: 10px;
+}
+
+.dl_title_img
+{
+	width: 210px;
+	height: 118px;
+	
+}
+
+.dl_title_img img
+{
+	width: 100%;
+	height: 100%;
+}
+
+.dl_title_center
+{
+	width: 210px;
+	height: 30px;
+	background-color: #f48282;
+}
+
+.dl_title_center p
+{
+	color: #FFFFFF;
+	margin: 0px;
+	line-height: 30px;
+	font-size: 14px;
+	text-align: center;
+}
+
+.dl_title_text
+{
+	width: 210px;
+	height: 30px;
+	background-color: #53606d;
+}
+
+.dl_title_text p,.dl_title_text h2
+{
+	color: #FFFFFF;
+	margin: 0px;
+	line-height: 30px;
+	font-size: 14px;
+	text-align: center;
+}
+
+.dl_title_text h2
+{
+	float: left;
+	margin-left: 10px;
+}
+
+.dl_title_text p
+{
+	float: right;
+	margin-right: 10px;
+}
+
+.answer_left{
+	background-color: #53606d;
+	padding: 20px 15px;
+}
+
+.answer_left p{
+	color: #FFFFFF;
+	margin: 0px 0px 10px 0px;
+	font-size: 14px;
+}
+
+.storage a{
+	display: block;
+	width: 80px;
+	height: 30px;
+	-moz-border-radius: 5px;
+  	-webkit-border-radius: 5px;
+  	border-radius: 5px;
+  	text-align: center;
+  	line-height: 30px;
+  	font-size: 16px;
+  	text-decoration: none;
+  	color: #FFFFFF;
+  	font-weight: bold;
+  	margin-top: 10px;
+}
+
+.storage_left
+{
+	background-color: #6d7e8f;
+	float: left;
+}
+
+.storage_right{
+	background-color: #3a9e6e;
+	float: right;
+}
+
+.storage_left:hover{
+	background-color: #3a9e6e;
+}
+
+.margin_top_bottom {
+	margin: 77px auto;
+}
+
+.serial_number{
+	width: 180px;
+	min-height: 260px;
+	background-color: #FFFFFF;
+	padding: 5px 10px;
+	margin-top: 30px;
+}
+
+.serial_number ul
+{
+	margin: 0px;
+}
+
+.serial_number ul li{
+	display: block;
+	width: 30px;
+	height: 30px;
+	color: #616f7e;
+	border: 1px solid #616f7e;
+	-moz-border-radius: 50%;
+  	-webkit-border-radius: 50%;
+  	border-radius: 50%;
+  	text-align: center;
+  	line-height: 30px;
+  	font-size: 16px;
+  	margin: 5px 5px;
+  	float: left;
+}
+
+.answer_right{
+	float: right;
+	width: 960px;
+	padding: 0px 10px;
+}
+
+.text_line
+{
+	height: 50px;
+	border-bottom: 2px solid #000000;
+}
+
+.text_line p
+{
+	margin: 0px;
+	line-height: 50px;
+	color: #000000;
+}
+
+.text_line .title_date
+{
+	float: left;
+}
+
+.problem_scroll{
+	position: relative;
+	overflow: auto;
+}
+
+.problem_01{
+	overflow: hidden;
+	background-color: #f5f5f5;
+	padding: 0 20px;
+}
+
+.problem ul{
+	margin: 0px;
+}
+
+.problem ul li{
+	padding: 20px 0px;
+	height: 250px;
+	border-bottom: 1px solid #cdcdcf;
+}
+
+.problem ul li:last-child{
+	border-bottom: 0px;
+}
+
+.result {
+	padding:20px;
+	background-color: #f5f5f5;
+}
+
+.result p:first-child {
+	color: #6d7e8f;
+	font-size: 16px;
+	float: left;
+}
+
+.result p:nth-child(2) {
+	color: #e63d14;
+	font-size: 16px;
+	font-weight: bold;
+	float: right;
+}
+
+.first_title {
+	width: 30px;
+	float: left;
+}
+
+.first_title p {
+	font-size: 18px;
+}
+
+.remind {
+	color: red;
+}
+
+.result_list {
+	width: 840px;
+	float: right;
+}
+
+.result_list dl dt {
+	font-size: 18px;
+}
+
+.result_list dl dd {
+	margin-top: 10px;
+}
+
+div[data-state="unchoice"] {
+	width: 780px;
+	height: 30px;
+	border: none;
+	margin-top: 2px;
+	margin-left: -10px;
+	padding-left: 10px;
+	-moz-border-radius: 5px;
+  	-webkit-border-radius: 5px;
+  	border-radius: 5px;
+}
+
+div[data-state="unchoice"] img {
+	display: none;
+}
+
+div[data-state=checked] {
+	width: 780px;
+	height: 30px;
+	border: 1px solid #169659;
+	background: #FFFFFF;
+	margin-top: 2px;
+	margin-left: -10px;
+	padding-left: 10px;
+	-moz-border-radius: 5px;
+  	-webkit-border-radius: 5px;
+  	border-radius: 5px;
+}
+
+div[data-state="unchecked"] {
+	width: 780px;
+	height: 30px;
+	border: 1px solid #e63d14;
+	background: #FFFFFF;
+	margin-top: 2px;
+	margin-left: -10px;
+	padding-left: 10px;
+	-moz-border-radius: 5px;
+  	-webkit-border-radius: 5px;
+  	border-radius: 5px;
+}
+
+.option {
+	float: left;
+	padding-top: 3px;
+}
+
+.option p {
+	font-size: 16px;
+}
+
+.right_img {
+	width: 18px;
+	height: 18px;
+	float: right;
+	padding-right: 25px;
+	margin-top: 4px;
+}
+
+.rihgt_img img{
+	width: 100%;
+	height: 100%;
+}
+
+.fill {
+	margin-top: 20px;
+	margin-left: 20px;
+}
+
+.fill p {
+	font-size: 18px;
+	color: #53606d;
+}
+
+.result_before{
+	display: inline-block;
+	width: 100px;
+	border-bottom: 1px solid #000000;
+	text-align: center;
+	color: #e63d14;
+}
+
+.result_after {
+	display: inline-block;
+	width: 100px;
+	border-bottom: 1px solid #000000;
+	text-align: center;
+	color: #1a985c;
+}
+
+.checkbox_course,.radio_course
+{
+	float: left;
+	margin-right: 10px;
+}
+
+.checkbox_course{
+	margin-top: 2px;
+}
+
+.check-box{
+	margin: 0px;
+}
+
+.rdo {
+    width: 20px;
+    height: 20px;
+    background-color: #ea879a;
+    margin-right: 30px;
+    border-radius: 50%;
+    position: relative;
+}
+.rdo:before,.rdo:after{
+    content: '';
+    display: block;
+    position: absolute;
+    border-radius: 50%;
+    transition: 0.3s ease;
+}
+.rdo:before {
+    top: 0px;
+    left: 0px;
+    width: 19px;
+    height: 19px;
+    background-color: #fff;
+    border: 2px solid #ea879a;
+}
+.rdo:after{
+    top: 5px;
+    left: 5px;
+    width: 9px;
+    height: 9px;
+    background-color: #fff; 
+}
+.rdo:checked:after{
+    top: 5px;
+    left: 5px;
+	width: 9px;
+    height: 9px;
+    background-color:#ea879a; 
+}
+.rdo:checked:before{
+    border-color:#ea879a; 
+}
+
+.radio-btn input[type="radio"], .check-box input[type="checkbox"] {
+    visibility: hidden;
+}
+/*Custom checkbox*/
+ .check-box {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    display: inline-block;
+    margin: 2px 7px 0 0;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 1px #9a9a9a;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    background: rgb(255, 255, 255);
+    background: -moz-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(246, 246, 246, 1) 47%, rgba(237, 237, 237, 1) 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(255, 255, 255, 1)), color-stop(47%, rgba(246, 246, 246, 1)), color-stop(100%, rgba(237, 237, 237, 1)));
+    background: -webkit-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(246, 246, 246, 1) 47%, rgba(237, 237, 237, 1) 100%);
+    background: -o-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(246, 246, 246, 1) 47%, rgba(237, 237, 237, 1) 100%);
+    background: -ms-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(246, 246, 246, 1) 47%, rgba(237, 237, 237, 1) 100%);
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(246, 246, 246, 1) 47%, rgba(237, 237, 237, 1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#ededed', GradientType=0);
+    border: 1px solid #9a9a9a;
+}
+.check-box i {
+    background: url(../img/check_un.png) no-repeat center center;
+    position: absolute;
+    left: 3px;
+    bottom: -15px;
+    width: 13px;
+    height: 13px;
+    opacity: 0.8;
+    -webkit-transition: all 400ms ease-in-out;
+    -moz-transition: all 400ms ease-in-out;
+    -o-transition: all 400ms ease-in-out;
+    transition: all 400ms ease-in-out;
+    -webkit-transform:rotateZ(-180deg);
+    -moz-transform:rotateZ(-180deg);
+    -o-transform:rotateZ(-180deg);
+    transform:rotateZ(-180deg);
+}
+.checkedBox {
+    -moz-box-shadow: inset 0 0 3px 1px #9a9a9a;
+    -webkit-box-shadow: inset 0 0 3px 1px #9a9a9a;
+    box-shadow: inset 0 0 3px 1px #9a9a9a;
+    border-bottom-color: #9a9a9a;
+}
+.checkedBox i {
+    bottom: 2px;
+    -webkit-transform:rotateZ(0deg);
+    -moz-transform:rotateZ(0deg);
+    -o-transform:rotateZ(0deg);
+    transform:rotateZ(0deg);
+}

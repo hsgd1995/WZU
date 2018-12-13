@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+		xmlns:task="http://www.springframework.org/schema/task"
+		xmlns:aop="http://www.springframework.org/schema/aop" 
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context.xsd
+http://www.springframework.org/schema/mvc
+http://www.springframework.org/schema/mvc/spring-mvc.xsd
+http://www.springframework.org/schema/task 
+http://www.springframework.org/schema/task/spring-task.xsd
+http://www.springframework.org/schema/aop
+	http://www.springframework.org/schema/aop/spring-aop.xsd
+">
+	<!-- 打开注解方式装配bean -->
+	<context:component-scan base-package="com.hxbd.clp">
+		<!-- 只对@Controller -->
+		<context:include-filter type="annotation"
+			expression="org.springframework.stereotype.Controller" />
+	</context:component-scan>
+
+ 	<!-- 定时器 -->
+	<task:annotation-driven/>
+	
+	<!-- 打开mvc注解 -->
+	<!-- conversion-service:参数格式化工具 -->
+	<mvc:annotation-driven>
+		<!-- 处理请求返回json字符串的中文乱码问题 -->
+		<mvc:message-converters>
+			<bean class="org.springframework.http.converter.StringHttpMessageConverter">
+				<property name="supportedMediaTypes">
+					<list>
+						<value>application/json;charset=UTF-8</value>
+					</list>
+				</property>
+			</bean>
+		</mvc:message-converters>
+	</mvc:annotation-driven>
+	<!-- 配置静态资源 -->
+	<mvc:resources location="/assets/" mapping="/assets/**" />
+	<mvc:resources location="/bootstrap-3.3.7-dist/" mapping="/bootstrap-3.3.7-dist/**" />
+	<mvc:resources location="/css/" mapping="/css/**" />
+	<mvc:resources location="/js/"  mapping="/js/**"/>
+	<mvc:resources location="/img/" mapping="/img/**" />
+	<mvc:resources location="/layer/" mapping="/layer/**" />
+	<mvc:resources location="/video/" mapping="/video/**" />
+	<mvc:resources location="/fonts/" mapping="/fonts/**" />
+	<mvc:resources location="/vtt/" mapping="/vtt/**" />
+	<mvc:resources location="/third/" mapping="/third/**" />
+
+	<!-- html视图解析器 必须先配置freemarkerConfig,注意html是没有prefix前缀属性的 -->
+	<bean id="freemarkerConfig"
+		class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
+		<!-- 配置html页面加载路径 -->
+		<property name="templateLoaderPath">
+			<value>/WEB-INF/backstage/</value>
+		</property>
+		<!-- 设置页面中文乱码问题 -->
+		<property name="freemarkerSettings">
+			<props>
+				<prop key="defaultEncoding">UTF-8</prop>
+			</props>
+		</property>
+	</bean>
+
+	<!-- 配置ViewResolver，可以用多个ViewResolver，并使用order属性排序，InternalResourceViewResolver放在最后 -->
+	<bean
+		class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
+		<!-- 视图按顺序解析 -->
+		<property name="order" value="1" />
+		<!-- 默认视图解析器 -->
+		<property name="defaultViews">
+			<list>
+				<!-- JSON View -->
+				<bean
+					class="org.springframework.web.servlet.view.json.MappingJackson2JsonView"></bean>
+			</list>
+		</property>
+		<!-- 配置对应视图解析器 -->
+		<property name="viewResolvers">
+			<list>
+				<!-- html视图解析器 -->
+				<bean id="htmlviewResolver"
+					class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
+					<!-- 后缀 -->
+					<property name="suffix" value=".html" />
+					<property name="contentType" value="text/html;charset=UTF-8" />
+				</bean>
+				<!-- 配置jsp视图解析器 -->
+				<bean id="jspViewResolver"
+					class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+					<property name="viewClass"
+						value="org.springframework.web.servlet.view.JstlView" />
+<!-- 						<property name="prefix" value="/" />
+ -->				<property name="prefix" value="/WEB-INF/pages/" /> 
+					<property name="suffix" value=".jsp" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+	
+	<!-- 配置文件上传解析器 -->
+	<bean id="multipartResolver"
+		class="com.hxbd.clp.listener.UploadCommonsMultipartResolver">
+		<!-- 注入属性 -->
+		<!-- 上传文件最大size：30M    (2M=2097152)   -->
+		<property name="maxUploadSize" value="1073741824" />
+		<!-- 上传文件默认编码 -->
+		<property name="defaultEncoding" value="UTF-8" />
+		<!-- 延迟文件解析，以便捕获大小异常 -->
+		<property name="resolveLazily" value="true" />
+	</bean>
+
+	<!-- 配置日期格式化工具 -->
+	<!-- <bean id="convensionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean"> 
+		注入自定义工具 <property name="formatters"> <set> <bean class="com.entor.formatter.DateFormatter"> 
+		注入格式 <constructor-arg type="java.lang.String" value="yyyy-MM-dd" /> </bean> 
+		</set> </property> </bean> -->
+	
+	<!-- 配置拦截器 -->
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<!-- 拦截路径：拦截所有请求 -->
+			<mvc:mapping path="/*" />
+			<!-- 使用自定义的拦截器 -->
+			<bean class="com.hxbd.clp.interceptor.AuthorizedInterceptor"></bean>
+		</mvc:interceptor>
+		<!-- 角色权限拦截器 -->
+		<mvc:interceptor>
+			<mvc:mapping path="/**" />
+			<mvc:exclude-mapping path="/assets/**"/>
+			<mvc:exclude-mapping path="/bootstrap-3.3.7-dist/**"/>
+			<mvc:exclude-mapping path="/css/**"/>
+			<mvc:exclude-mapping path="/js/**"/>
+			<mvc:exclude-mapping path="/img/**"/>
+			<mvc:exclude-mapping path="/layer/**"/>
+			<mvc:exclude-mapping path="/video/**"/>
+			<mvc:exclude-mapping path="/fonts/**"/>
+			<mvc:exclude-mapping path="/vtt/**"/>
+			<mvc:exclude-mapping path="/third/**"/>
+			<bean class="com.hxbd.clp.interceptor.RoleAuthorityInterceptor"></bean>
+		</mvc:interceptor>
+	</mvc:interceptors>
+	
+	<!-- aop -->
+	<!-- <aop:aspectj-autoproxy proxy-target-class="true">
+    </aop:aspectj-autoproxy> -->
+</beans>

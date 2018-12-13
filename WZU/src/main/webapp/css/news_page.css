@@ -1,0 +1,260 @@
+/*------------------系统消息列表 开始----------------*/
+.radio-btn input[type="radio"], .check-box input[type="checkbox"] {
+    visibility: hidden;
+}
+/*Custom checkbox*/
+ .check-box {
+    width: 14px;
+    height: 14px;
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 1px #9a9a9a;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    background: rgb(255, 255, 255);
+    background: -moz-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(246, 246, 246, 1) 47%, rgba(237, 237, 237, 1) 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(255, 255, 255, 1)), color-stop(47%, rgba(246, 246, 246, 1)), color-stop(100%, rgba(237, 237, 237, 1)));
+    background: -webkit-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(246, 246, 246, 1) 47%, rgba(237, 237, 237, 1) 100%);
+    background: -o-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(246, 246, 246, 1) 47%, rgba(237, 237, 237, 1) 100%);
+    background: -ms-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(246, 246, 246, 1) 47%, rgba(237, 237, 237, 1) 100%);
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(246, 246, 246, 1) 47%, rgba(237, 237, 237, 1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#ededed', GradientType=0);
+    border: 1px solid #9a9a9a;
+}
+.check-box i {
+    background: url(../img/check_un.png) no-repeat center center;
+    position: absolute;
+    left: 2px;
+    bottom: -15px;
+    width: 8px;
+    height: 8px;
+    opacity: 0.8;
+    -webkit-transition: all 400ms ease-in-out;
+    -moz-transition: all 400ms ease-in-out;
+    -o-transition: all 400ms ease-in-out;
+    transition: all 400ms ease-in-out;
+    -webkit-transform:rotateZ(-180deg);
+    -moz-transform:rotateZ(-180deg);
+    -o-transform:rotateZ(-180deg);
+    transform:rotateZ(-180deg);
+}
+.checkedBox {
+    -moz-box-shadow: inset 0 0 1px 1px #9a9a9a;
+    -webkit-box-shadow: inset 0 0 1px 1px #9a9a9a;
+    box-shadow: inset 0 0 1px 1px #9a9a9a;
+    border-bottom-color: #9a9a9a;
+}
+.checkedBox i {
+    bottom: 2px;
+    -webkit-transform:rotateZ(0deg);
+    -moz-transform:rotateZ(0deg);
+    -o-transform:rotateZ(0deg);
+    transform:rotateZ(0deg);
+}
+
+.npr_contents{
+	background-color: #e3e3e3;
+	overflow: hidden;
+	padding: 5px;
+}
+
+.npr_news ul li
+{
+	background-color: #ffffff;
+	padding: 9px 0px 6px;
+	margin-top: 5px;
+}
+
+.npr_news ul li:first-child{
+	margin-top: 0px;
+}
+
+.checkbox_course
+{
+	float: left;
+	width: 15px;
+	height: 15px;
+	margin: 1px 10px 0px 10px;
+}
+
+.npr_unread
+{
+	float: left;
+	width: 18px;
+	margin-top: 1px;
+}
+
+.npr_unread img{
+	width: 100%;
+	vertical-align: baseline;
+}
+
+.npr_text{
+	float: left;
+}
+
+.npr_text p{
+	font-size: 14px;
+	font-weight:bold;
+	margin:0px 0px 0px 10px;
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+    -o-text-overflow: ellipsis;
+    white-space:nowrap;
+    width:600px;
+}
+
+.npr_sign{
+	float: right;
+}
+
+.npr_sign p
+{
+	margin: 0px 20px 0px 0px;
+	color: #ff4d44;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.npr_date{
+	float: right;
+}
+
+.npr_date p{
+	margin: 0px 10px 0px 0px;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.npr_text_r{
+	float: left;
+}
+
+.npr_text_r p{
+	font-size: 14px;
+	margin:0px 0px 0px 10px;
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+    -o-text-overflow: ellipsis;
+    white-space:nowrap;
+    width:600px;
+}
+
+.npr_sign_r{
+	float: right;
+}
+
+.npr_sign_r p
+{
+	margin: 0px 20px 0px 0px;
+	color: #3772b3;
+	font-size: 14px;
+}
+
+.npr_date_r{
+	float: right;
+}
+
+.npr_date_r p{
+	margin: 0px 10px 0px 0px;
+	font-size: 14px;
+}
+
+/*--------------分页样式 开始--------------*/
+.page{
+    list-style: none;
+}
+.page>li{
+    float: left;
+    background-color: #ffffff;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+.page .pageItem{
+    border: solid thin #DDDDDD;
+    margin: 5px;
+}
+.page .pageItemActive{
+    border: solid thin #9a9a9a;
+    margin: 5px;
+    background-color: #9a9a9a;
+    color:white;
+}
+.page .pageItem:hover{
+    border: solid thin #9a9a9a;
+    background-color: #9a9a9a;
+    color:white;
+}
+.page .pageItemDisable{
+    border: solid thin #9a9a9a;
+    margin: 5px;
+    background-color: #9a9a9a;
+}
+
+/*--------------分页样式 结束--------------*/
+
+.npr_bottom{
+	margin-top: 25px;
+	overflow: hidden;
+}
+
+.npr_delete
+{
+	float: left;
+	margin: 5px 0px 0px 10px;
+}
+
+.npr_empty,.npr_allread,.npr_page{
+	float: right;
+}
+
+.npr_empty{
+	margin: 5px 10px 0px 36px;
+}
+
+.npr_allread{
+	margin: 5px 10px 0px 0px;
+}
+
+
+/*------------------系统消息列表 介绍----------------*/
+
+
+/*-------------------消息详情样式开始---------------*/
+
+.npr_return a{
+	float: right;
+	display: block;
+	margin: 0px 10px 0px 0px;
+	color: #dc8b0d;
+	font-size: 14px;
+	text-decoration: none;
+}
+
+.nd_contents{
+	width: 100%;
+	min-height: 600px;
+	background-color: #FFFFFF;
+	margin-top: 5px;
+	overflow: hidden;
+}
+
+.nd_contents p{
+	text-align: center;
+	font-size: 14px;
+	color: #000000;
+	margin-top: 45px;
+}
+
+.nd_contents a{
+	text-align: center;
+	display: block;
+	font-size: 14px;
+	color: #3772b3;
+	margin-top: 100px;
+}
+
+/*-------------------消息详情样式结束---------------*/

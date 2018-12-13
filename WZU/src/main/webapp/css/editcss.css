@@ -1,0 +1,26 @@
+.editInfo {
+	z-index: 1; /* 让div层浮动覆盖到其它层 */
+	position: fixed; /* 让div适应屏幕固定在指定位置 */
+	background:activeborder;
+	left: 300px; /* 让div与父容器的左边缘间距400px */
+	top: 135px; /* 让div与父容器的顶部间距100px */
+	padding: 20px;
+	border: 2px solid #ECECFF;
+	border-radius: 5px;
+	display: none;
+	height: 600px;
+	overflow: auto;
+}
+
+#main {
+	position: relative;
+}
+
+.zz {
+	width: 100%;
+	height: 100%;
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+}

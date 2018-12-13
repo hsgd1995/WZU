@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>角色管理</title>
+<link rel="stylesheet" href="third/ztree/css/bootstrapStyle/bootstrapStyle.css" type="text/css">
+</head>
+<body>
+<div class="panel panel-default"
+	style="margin-top: 20px; margin-left: 20px;">
+	<div style="margin-left: 20px">
+		<fieldset>
+			<legend>角色管理</legend>
+			<button type="button"  class="btn btn-xs btn-success" data-toggle="collapse"
+				data-target="#demo" style="width:50px;height:30px">展开</button>
+			<div id="demo" class="panel-collapse collapse">
+				<div class="panel-body">
+					<button type="button" id="saveRole" class="btn btn-xs btn-success">
+						<span class="glyphicon glyphicon-plus-sign" style="color: green;"></span>保存
+					</button>
+					<button type="button" id="batchDisable" class="btn btn-xs btn-danger">
+						<span class="glyphicon glyphicon-minus-sign" style="color: red;"></span>停用
+					</button>
+					<button type="button" id="batchEnable" class="btn btn-xs btn-success">
+						<span class="glyphicon glyphicon-minus-sign" style="color: green;"></span>启用
+					</button>
+					<button type="button" class="btn btn-xs"
+						onclick="clearFormFunc();">
+						<span class="glyphicon glyphicon-minus-sign"></span>重置
+					</button>
+					<form id="roleForm">
+						<table class="table table-bordered table-hover"
+							style="margin-top: 20px;">
+							<tbody>
+								<tr>
+									<td class="hide"><input name="id"></td>
+									<td><span>角色名称<span style="color: red;">*</span>：
+									</span></td>
+									<td><input name="name" class="form-control" ></td>
+								</tr>
+								<tr>
+									<td><span>备注说明<span style="color: red;">*</span>：
+									</span>
+									<td>
+										<input name="state" class="form-control">
+									</td>
+								</tr>
+								<tr>
+									<td><span>状态<span style="color: red;">*</span>：
+									</span>
+									<td>
+										<select name="type">
+											<option value="1" selected="selected">启用（有效角色）</option>
+											<option value="0">停用（无效角色）</option>
+										</select>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<span>选择权限<span style="color: red;">*</span>：</span>
+									</td>
+									<td>
+										<div>
+											<ul id="treeDemo" class="ztree"></ul>
+										</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</form>
+				</div>
+			</div>
+			<div><h4></h4></div>
+			<table class="table table-bordered table-hover fill">
+				<thead>
+					<tr>
+						<th style="text-align: center;"><input id="allCheckBox" type="checkbox"
+							value=""></th>
+						<th>角色名称</th>
+						<th>备注说明</th>
+						<th>类型</th>
+						<th>创建时间</th>
+						<th>创建者</th>
+						<th>编辑</th>
+					</tr>
+				</thead>
+				<tbody></tbody>
+			</table>
+			<!-- 分页栏 -->
+			<div class="row">
+				<div class="col-sm-12" id="pagination"></div>
+			</div>
+			
+		</fieldset>
+
+	</div>
+</div>
+<script src="js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="third/ztree/js/jquery.ztree.core.js"></script>
+<script type="text/javascript" src="third/ztree/js/jquery.ztree.excheck.js"></script>
+<script src="js/authority.js"></script>
+<script src="js/choice.js"></script>
+<script src="js/role.js"></script>
+</body>
+</html>

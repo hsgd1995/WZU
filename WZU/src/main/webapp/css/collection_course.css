@@ -1,0 +1,59 @@
+.center_bottom
+{
+	margin-top: 20px;
+}
+
+.center_bottom p
+{
+	float: left;
+	margin-right: 20px;
+}
+
+.process_p
+{
+	margin-top: 40px;
+}
+
+.end_time
+{
+	float: right;
+}
+
+.list_content ul li
+{
+	position: relative;
+}
+
+.exit_img
+{
+	position: absolute;
+	top: -7px;
+	right: -7px;
+}
+
+.list_content_right
+{
+	width: 231px;
+}
+
+.start_time
+{
+	margin: 45px 0px 0px 20px;
+}
+
+.start_time p
+{
+	font-size: 16px;
+}
+
+.time_bg {
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    background: url(../img/time_bg.jpg) repeat-x;
+    text-align: center;
+    line-height: 30px;
+    margin: 0px 3px;
+    color: #FFFFFF;
+    font-size: 18px;
+}

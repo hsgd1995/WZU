@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+	<Appenders>
+		<Console name="Console" target="SYSTEM_OUT">
+			<PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />
+		</Console>
+	</Appenders>
+	<Loggers>
+		<!-- <Logger name="org.springframework.beans.factory" level="DEBUG" />
+		<Logger name="org.springframework.context" level="DEBUG" />
+		<Logger name="org.springframework.web" level="DEBUG" />
+		<Logger name="org.springframework.jdbc" level="DEBUG" />
+		<Logger name="org.apache.mybatis" level="DEBUG" />
+		<Logger name="org.mybatis.spring" level="DEBUG" /> -->
+		<!-- 自定义日志记录package -->
+		<Logger name="com.entor.hxcl" level="DEBUG" />
+		<Root level="error">
+			<AppenderRef ref="Console" />
+		</Root>
+	</Loggers>
+</Configuration>

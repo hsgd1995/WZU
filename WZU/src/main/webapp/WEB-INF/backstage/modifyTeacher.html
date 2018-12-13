@@ -1,0 +1,130 @@
+<div class="panel panel-default"
+	style="margin-top: 20px; margin-left: 20px;">
+	<div style="margin-left: 20px">
+		<fieldset>
+			<legend>教师管理</legend>
+			<button type="button" class="btn btn-xs btn-success"
+				data-toggle="collapse" data-target="#demo"
+				style="width: 50px; height: 30px">展开</button>
+			<div id="demo" class="panel-collapse collapse">
+				<div class="panel-body">
+					<button type="button" id="saveTeacher"
+						class="btn btn-xs btn-success">
+						<span class="glyphicon glyphicon-plus-sign" style="color: green;"></span>保存
+					</button>
+					<button type="button" id="delTeacher" class="btn btn-xs btn-danger">
+						<span class="glyphicon glyphicon-minus-sign" style="color: red;"></span>删除
+					</button>
+					<button type="button" class="btn btn-xs btn-primary"
+						onclick="clearTeacherFormFunc();">
+						<span class="glyphicon glyphicon-minus-sign"></span>重置
+					</button>
+					<form id="teacherForm">
+						<table class="table table-bordered table-hover"
+							style="margin-top: 20px;">
+							<tbody>
+								<tr>
+									<td class="hide"><input name="id"></td>
+									<td><span>教师名称<span style="color: red;">*</span>：
+									</span></td>
+									<td><input name="teacherName" class="form-control"></td>
+									<td><span>教师职位<span style="color: red;">*</span>：
+									</span></td>
+									<td><input name="position" class="form-control"></td>
+								</tr>
+								<tr>
+									<td><span>教师介绍<span style="color: red;">*</span>：
+									</span></td>
+									<td><input name="introduce" class="form-control"></td>
+									<td><span>教师编号<span style="color: red;">*</span>：
+									</span></td>
+									<td><input name="teacherNo" class="form-control"></td>
+								</tr>
+								<tr>
+									<td><span>教师头像<span style="color: red;">*</span>：
+									</span></td>
+									<td><input type="file" id="uploadFile" name="file">
+										<div class="box">
+											<img height="20" width="20" id="img" src="">
+										</div>
+										<div class="bimg"></div></td>
+								</tr>
+								<tr>
+									<td><span>详细介绍<span style="color: red;">*</span>：
+									</span></td>
+									<td colspan="3"><div id="editor"></div></td>
+								</tr>
+							</tbody>
+						</table>
+				</div>
+			</div>
+			<h4></h4>
+			<div class="nav-search search" id="nav-search">
+				<form class="form-search">
+					<span class="input-icon"> <input type="text" id="teaName"
+						placeholder="根据教师名字查询" autocomplete="off" />
+						<button id="queryTeacher" type="button">查询</button> <i
+						class="icon-search nav-search-icon"></i>
+					</span>
+				</form>
+			</div>
+			<table class="table table-bordered table-hover fill">
+				<thead>
+					<tr>
+						<td><span>筛选信息： </span></td>
+						<td style="text-align: center;" colspan="7">
+							<span>教师名字：</span>
+							<input id="screen-teacherName" value="" placeholder="按教师名字搜索消息..."
+							style="width: 150px; display: inline; padding: 3px 4px;">
+							&emsp; <span>教师编号：</span>
+							<input id="screen-teacherNo" value="" placeholder="按教师编号搜索消息..."
+							style="width: 150px; display: inline; padding: 3px 4px;">
+							&emsp;<button style="margin-bottom: 5px"class="btn btn-xs btn-primary" id="screen-select">查询</button>
+						</td>
+					</tr>
+					
+					<tr>
+						<th style="text-align: center;"><input type="checkbox"
+							value=""></th>
+						<th>教师名称</th>
+						<th>教师职位</th>
+						<th>教师介绍</th>
+						<th>教师编号</th>
+						<th>详细介绍</th>
+						<th>教师头像</th>
+						<th>编辑</th>
+					</tr>
+				</thead>
+				<tbody></tbody>
+			</table>
+			<!-- 分页栏 -->
+			<div class="row">
+				<div class="col-sm-12" id="pagination"></div>
+			</div>
+			</form>
+		</fieldset>
+
+	</div>
+	<script src="js/jquery-3.2.1.min.js"></script>
+	<script src="js/teacher.js" type="text/javascript"></script>
+	<script type="text/javascript" src="js/wangEditor.min.js"></script>
+	<script type="text/javascript">
+		var E = window.wangEditor
+		var editor = new E('#editor');
+		//上传url
+		editor.customConfig.uploadImgServer = 'teacher/uploads';
+		//上传图片统一名字
+		editor.customConfig.uploadFileName = 'file';
+		// 将图片大小限制为 3M
+		editor.customConfig.uploadImgMaxSize = 3 * 1024 * 1024;
+		//不需要网络上传图片 
+		editor.customConfig.showLinkImg = false;
+		/*  	        //图片上传并返回结果  JSON 格式字符串
+		 editor.customConfig.uploadImgHooks = {
+		 customInsert: function (insertImg, result, editor) {
+		 var url =result.data;
+		 insertImg(url); 
+		 }; */
+		editor.create();
+	</script>
+</div>

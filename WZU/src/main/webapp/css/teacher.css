@@ -1,0 +1,207 @@
+.teacher_wrap
+{
+	width: 1200px;
+	margin: 0px auto;
+}
+
+.teacher_left
+{
+	width: 960px;
+	float: left;
+}
+
+.teacher_title
+{
+	background-color: #f48282;
+	padding: 20px 0px 20px 30px;
+}
+
+.teacher_title_img
+{
+	width: 95px;
+	height: 95px;
+	float: left;
+	overflow: hidden;
+	-moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    border: 2px solid #FFFFFF;
+}
+
+.teacher_title_img img
+{
+	width: 100%;
+	height: 100%;
+}
+
+.teacher_name
+{
+	float: left;
+	margin: 15px 0px 0px 20px;
+	color: #ffffff;
+}
+
+.teacher_name h2
+{
+	margin: 0px;
+	font-size: 20px;
+	line-height: 30px;
+}
+
+.teacher_name p
+{
+	margin: 0px;
+	font-size: 14px;
+	line-height: 24px;
+}
+
+.teacher_introduce
+{
+	padding: 10px;
+}
+
+.teacher_right
+{
+	width: 240px;
+	float: right;
+}
+
+.school_logo
+{
+	background-color:rgba(244,130,130,.2);
+	overflow: hidden;
+}
+
+.school_logo_img
+{
+	width: 115px;
+	height: 115px;
+	margin: 10px auto;
+	-moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+	overflow: hidden;
+}
+
+.school_logo_img img
+{
+	width: 100%;
+	height: 100%;
+}
+
+.teaching_title
+{
+	background-color: #53606d;
+	overflow: hidden;
+}
+
+.teaching_title h1
+{
+	color: #FFFFFF;
+	font-size: 16px;
+	margin: 10px 0px 10px 20px;
+}
+
+.teaching_title h1 i
+{
+	font-size: 24px;
+	margin: 0px 10px 0px 0px;
+}
+
+.teaching ul
+{
+	background-color: #f5f5f6;
+	padding-bottom: 10px;
+}
+
+.teaching ul li
+{
+	margin-top: 10px;
+}
+
+.teaching_img
+{
+	overflow: hidden;
+	position: relative;
+	display: block;
+	text-align: center;
+	width: 200px;
+	height: 120px;
+	overflow: hidden;
+	margin: 0px auto;
+}
+
+.teaching_img:before
+{
+	content: "";
+	width: 0px;
+	height: 100%;
+	background: #000;
+	padding: 14px 18px;
+	position: absolute;
+	top: 0;
+	left: 50%;
+	opacity: 0;
+	transition: all 500ms cubic-bezier(0.47, 0, 0.745, 0.715) 0s;
+}
+.teaching_img:hover:before{
+	width: 100%;
+	left: 0;
+	opacity: 0.5;
+}
+.teaching_img img
+{
+	width: 100%;
+	height: 100%;
+	transition: all 0.6s ease 0s;
+}
+
+
+.teaching_img .teaching_content
+{
+	width: 100%;
+	color: #fff;
+	position: absolute;
+	top: 45%;
+	left: 0;
+	overflow: hidden;
+}
+
+.teaching_img .teaching_content .teaching_post 
+{
+	width: 180px;
+	height: 40px;
+	display: block;
+	margin: 0 auto;
+	opacity: 0;
+	transition: all 0.3s ease 0s;
+}
+
+.teaching_img .teaching_content .teaching_post i
+{
+	margin-right: 10px;
+}
+
+.teaching_img:hover .teaching_post
+{
+	opacity: 1;
+	transition-delay: 0.5s;
+	line-height: 26px;
+}
+
+.teaching_text
+{
+	width: 200px;
+	height: 24px;
+	background-color:#f48282;
+	margin: 0px auto;
+}
+
+.teaching_text p
+{
+	margin: 0px;
+	color: #ffffff;
+	line-height: 24px;
+	font-size: 14px;
+	text-align: center;
+}

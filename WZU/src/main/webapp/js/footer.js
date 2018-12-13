@@ -1,0 +1,14 @@
+﻿document.writeln("<div class=\'footer_bg\'>");
+document.writeln("			<img src=\'img/footer_bg.jpg\'> ");
+document.writeln("		</div>");
+document.writeln("		<div class=\'footer_list\'>");
+document.writeln("			<ul class=\'list-unstyled list-inline\'>");
+document.writeln("				<li><a href=\'#\'>隐私声明</a></li>");
+document.writeln("				<li><span>|</span></li>");
+document.writeln("				<li><a href=\'#\'>法律声明</a></li>");
+document.writeln("				<li><span>|</span></li>");
+document.writeln("				<li><a href=\'#\'>网站地图</a></li>");
+document.writeln("				<br>");
+document.writeln("				<li><span>Copyright @ Hengxinboda Hanyuyan Wangzhan</span></li>");
+document.writeln("			</ul>");
+document.writeln("		</div>");

@@ -1,0 +1,215 @@
+body
+{
+	position: relative;
+	background: url(../img/curriculum_bg.png) 0px 135px no-repeat;
+	background-size: 100% 100% ;
+}
+
+.bg_img_left
+{
+	position: absolute;
+	top: 135px;
+	left: 0px;
+	z-index: 1;
+}
+
+.bg_img_right
+{
+	position: absolute;
+	bottom: 100px;
+	right: 0px;
+	z-index: 2;
+}
+
+.header_nav
+{
+	background:url(../img/header_nav_bg.jpg) no-repeat;
+	background-position:100% 100% ;
+}
+
+/*-----------------details start------------------*/
+.details_content
+{
+	position: relative;
+	width: 1200px;
+	margin: 0px auto;
+	padding-bottom: 50px;
+	height: 100%;
+	background-color: #FFFFFF;
+	z-index: 5;
+}
+
+.details_left
+{
+	width: 210px;
+	float: left;
+	margin-top:10px ;
+	margin-left: 10px;
+}
+
+.dl_content .bg_red
+{
+	background-color: #f48282;
+}
+
+.dl_content .bg_red a:hover
+{
+	color: #FFFFFF;
+}
+
+.dl_content_top
+{
+	height: 60px;
+	background-color: #53606d;
+	position: relative;
+}
+
+.dl_content_top i
+{
+	position: absolute;
+	top: 15px;
+	left: 20px;
+	font-size:30px ;
+	color: #FFFFFF;
+}
+
+.dl_content_top a
+{
+	font-size:18px ;
+	display: block;
+	width: 210px;
+	text-decoration: none;
+	margin: 0px;
+	line-height: 60px;
+	color: #FFFFFF;
+	text-align: center;
+}
+
+.dl_content a:hover
+{
+	color: #fb565c;
+}
+
+.details_right
+{
+	width: 960px;
+	float: right;
+	margin-top: 10px;
+	margin-right: 10px;
+} 
+
+.catalog_content
+{
+	width: 960px;
+	float: right;
+	min-height: 600px;
+	margin-top: 10px;
+	margin-right: 10px;
+	background-color: #fcfcfc;
+}
+
+.catalog_content h1
+{
+	line-height: 40px;
+	font-weight: 600;
+	color: #434d57;
+	margin: 0px;
+	font-size: 18px;
+	padding-left: 20px;
+	border-bottom: 1px solid #d0d6dc;
+}
+
+.catalog_content h1 i
+{
+	font-size: 24px;
+	display: block;
+	float: left;
+	margin-top:8px ;
+}
+
+.catalog_bottom
+{
+	padding: 20px ;
+}
+
+.catalog_bottom p
+{
+	color: #7c7c7c;
+}
+
+
+/*-------------------------letest information start--------------------------*/
+
+.new_img
+{
+	width: 100px;
+	height: 75px;
+	float: left;
+	margin:0px 15px 0px 10px;
+}
+
+.new_img img
+{
+	width: 100%;
+	height: 100%;
+}
+
+.new_text
+{
+	float: left;
+	width: 780px;
+}
+
+.catalog_bottom ul
+{
+	margin: 0px;
+}
+
+.catalog_bottom ul li
+{
+	border-bottom: 1px solid #aeaeae;
+	padding: 15px 0px;
+}
+
+.catalog_bottom ul li:hover
+{
+	background-color: rgba(255,187,187,0.1);
+}
+
+.new_text h2
+{
+	margin: 5px 0px 15px 0px;
+	font-size: 16px;
+	font-weight: 600;
+}
+
+.new_text h2 a
+{
+	color: #636363;
+	text-decoration: none;
+	font-size: 15px;
+}
+
+.new_text h2 a:hover  
+{
+	color: #f48282;
+}
+
+.contentOmit
+{
+	margin: 0px;
+	color: #a0a0a0;
+	font-size: 14px;
+}
+
+.latest_page
+{
+	float: right; 
+	margin-right: 20px;
+}
+
+.teacherImage 
+{
+	margin-left:80px; 
+	margin-top:40px;
+}

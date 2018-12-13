@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="gb2312"?>
+<root>
+	<data>
+		<start>0.001</start>
+		<end>1.0</end>
+		<subtitle>我是第一条中文字幕</subtitle>
+	</data>
+	<data>
+		<start>1.001</start>
+		<end>3.0</end>
+		<subtitle>我是第二条中文字幕</subtitle>
+	</data>
+	<data>
+		<start>3.001</start>
+		<end>6.0</end>
+		<subtitle>我是第三中文字幕</subtitle>
+	</data>
+	<data>
+		<start>6.001</start>
+		<end>9.0</end>
+		<subtitle>我是第四条中文字幕</subtitle>
+	</data>
+</root>

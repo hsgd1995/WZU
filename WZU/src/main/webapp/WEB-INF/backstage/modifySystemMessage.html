@@ -1,0 +1,99 @@
+<div class="panel panel-default" style="margin-top: 20px;margin-left: 20px;">
+	<div style="margin-left: 20px">
+		<fieldset>
+			<legend>系统消息</legend>
+			<button type="button" id="delete" class="btn btn-xs btn-danger">
+				<span class="glyphicon glyphicon-minus-sign" style="color: red;"></span>删除
+			</button>
+			<button type="button" id="reset" class="btn btn-xs">
+				<span class="glyphicon glyphicon-minus-sign"></span>重置
+			</button>
+			<form id="Form">
+				<table class="table table-bordered table-hover"
+					style="margin-top: 20px;">
+					<tbody>
+						<tr>
+							<td class="hide"><input name="id"></td>
+							<td><span>消息标题：
+							</span></td>
+							<td><input name="title" class="form-control"></td>
+						</tr>
+						<tr>
+							<td><span>用户：
+							</span></td>
+							<td><input name="username" class="form-control"></td>
+						</tr>
+						<tr>
+							<td><span>发送日期：
+							</span></td>
+							<td><input name="sendTime" type="date" class="form-control"></td>
+						</tr>
+						<tr>
+							<td><span>消息内容：
+							</span>
+							<td>
+								<div id="editor"></div>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<table class="table table-bordered table-hover fill">
+					<thead>
+						<tr>
+							<td><span>筛选消息： </span></td>
+							<td style="text-align: center;" colspan="7">
+								<span>消息标题：</span>
+								 <input id="message-title" value="" placeholder="按标题搜索消息..."
+								style="width: 150px; display: inline; padding: 3px 4px;">
+								&emsp; <span>用户名：</span>
+								 <input id="message-username" value="" placeholder="按用户名搜索消息..."
+								style="width: 150px; display: inline; padding: 3px 4px;">
+								&emsp; <span>发送日期：</span>
+								 <input id="message-createTime" type="date" 
+								style="width: 150px; display: inline; padding: 3px 4px;">
+								&emsp;<button style="margin-bottom: 5px"class="btn btn-xs btn-primary" id="message-select">查询</button>
+							</td>
+						</tr>
+						
+						<tr>
+							<th style="text-align: center;"><input type="checkbox"
+								value=""></th>
+							<th>消息标题</th>
+							<th>消息内容</th>
+							<th>用户id</th>
+							<th>用户</th>
+							<th>发送日期</th>
+							<th>状态</th>
+							<th>操作</th>
+						</tr>
+					</thead>
+					<tbody></tbody>
+				</table>
+				<!-- 分页栏 -->
+				<div class="row">
+					<div class="col-sm-12" id="pagination"></div>
+				</div>
+			</form>
+		</fieldset>
+
+	</div>
+</div>
+	<script src="js/jquery-3.2.1.min.js"></script>
+	<script src="js/choice.js"></script>
+	<script src="js/systemMessage.js" type="text/javascript"></script>
+	<script type="text/javascript" src="js/wangEditor.min.js"></script>
+<script type="text/javascript">
+	var E = window.wangEditor
+	var editor = new E('#editor');
+	//上传url
+	editor.customConfig.uploadImgServer = 'message/uploads';
+	//上传图片统一名字
+	editor.customConfig.uploadFileName = 'file';
+	// 将图片大小限制为 3M
+	editor.customConfig.uploadImgMaxSize = 3 * 1024 * 1024;
+	//不需要网络上传图片 
+	editor.customConfig.showLinkImg = false;
+	
+	editor.create();
+	 
+</script>

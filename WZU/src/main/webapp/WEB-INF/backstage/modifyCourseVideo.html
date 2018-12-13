@@ -1,0 +1,140 @@
+<div class="panel panel-default"
+	style="margin-top: 20px; margin-left: 20px;">
+	<div style="margin-left: 20px">
+		<fieldset>
+			<legend>课程视频</legend>
+			<button type="button" id="saveCourseVideo"
+				class="btn btn-xs btn-success">
+				<span class="glyphicon glyphicon-plus-sign" style="color: green;"></span>保存
+			</button>
+			<button type="button" id="delCourseVideo"
+				class="btn btn-xs btn-danger">
+				<span class="glyphicon glyphicon-minus-sign" style="color: red;"></span>删除
+			</button>
+			<button type="button" class="btn btn-xs btn-primary"
+				onclick="clearCourseVideoFormFunc();">
+				<span class="glyphicon glyphicon-minus-sign"></span>重置
+			</button>
+			<form id="courseVideoForm">
+				<table class="table table-bordered table-hover"
+					style="margin-top: 20px;">
+					<tbody>
+						<tr>
+							<td class="hide"><input name="id"></td>
+							<td class="hide"><input name="courseId"></td>
+							<td><span>课程<span style="color: red;">*</span>：
+							</span>
+							<td><input name="courseNo" class="form-control"></td>
+							<td><input type="button" id="aaa" data-toggle="modal" data-target="#myModal" value="点击查看" onclick="courseDetail()"></td>
+						</tr>
+						<tr>
+							<td><span>主标题<span style="color: red;">*</span>：
+							</span>
+							<td><select id="parentNameSelect" name="parentNameSelect"
+								style="width: 200px"></select><input type="button" id="bbb" value="获取主标题" onclick="courseVideoDetail()"></td>
+						</tr>
+						<tr>
+							<td><span>子标题<span style="color: red;">*</span>：
+							</span></td>
+							<td><input name="name" class="form-control"></td>
+						</tr>
+						<tr>
+							<td><span>视频地址<span style="color: red;">*</span>：
+							</span></td>
+							<td><input type="file" id="uploadFile" name="file">
+							<div>&emsp;</div>
+							<div class="progress" >
+									<div id="pro" class="progress-bar" role="progressbar" aria-valuenow="60"
+										aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
+										
+									</div>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td><span>字幕文件(可选择多个)<span style="color: red;">*</span>：
+								</span>
+							</td>
+							<td>
+								<input type="file" multiple="multiple" id="captionFile" name="captionFile">
+							</td>
+						</tr>
+						<!-- 						<tr>
+							<td><span>视频地址<span style="color: red;">*</span>：
+							</span></td>
+							<td><input name="url" class="form-control"></td>
+						</tr> -->
+					</tbody>
+				</table>
+				<table class="table table-bordered table-hover fill">
+					<thead>
+						<tr>
+							<th style="text-align: center;"><input type="checkbox"
+								value=""></th>
+							<th>课程名</th>
+							<th>主标题</th>
+							<th>子标题</th>
+							<th>视频地址</th>
+							<th>编辑</th>
+						</tr>
+					</thead>
+					<tbody></tbody>
+				</table>
+				<!-- 分页栏 -->
+				<div class="row">
+					<div class="col-sm-12" id="pagination"></div>
+				</div>
+			</form>
+		</fieldset>
+
+	</div>
+	
+	<!-- 模态框 -->	
+<!-- <div class="modal fade"  id="myModal" tabindex="-1"role="dialog" aria-labelledby="myModalLabel"  aria-hidden="true">-->
+<div class="modal"  id="myModal" tabindex="-1"role="dialog" aria-labelledby="myModalLabel"  aria-hidden="true">
+	<div class="modal-dialog" >
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" 
+						aria-hidden="true">×
+				</button>
+				<h4 class="modal-title" id="myModalLabel">
+					课程详情
+				</h4>
+			</div>
+			<div class="modal-body">
+			<table style="table-layout:fixed;margin-top: 20px;"
+				 class="table table-bordered table-hover">
+				 	<tr><td style="display:table-cell; vertical-align:middle">
+					<span>课程编号：</span><td id="courseNo" colspan="3"></td>
+				</tr>
+				<tr><td style="display:table-cell; vertical-align:middle">
+					<span>课程名字：</span><td id="courseName" colspan="3"></td>
+				</tr>
+				<tr><td style="display:table-cell; vertical-align:middle">
+					<span>课程简介：</span><td id="courseIntroduce" colspan="3"></td>
+				</tr>
+				<tr><td style="display:table-cell; vertical-align:middle">
+					<span>课程大纲：</span><td id="courseOutline" colspan="3"></td>
+				</tr>
+				<tr><td style="display:table-cell; vertical-align:middle">
+					<span>备注：</span><td id="remark" colspan="3" rowspan="3"></td>
+				</tr>
+				 </table>
+				
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" 
+						data-dismiss="modal">关闭
+				</button>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+	
+</div>
+<script src="js/jquery-3.2.1.min.js"></script>
+<script src="js/courseVideo.js" type="text/javascript"></script>
+<script>
+	
+</script>

@@ -1,0 +1,67 @@
+<div class="panel panel-default" style="margin-top: 20px;margin-left: 20px;">
+	<div style="margin-left: 20px">
+		<fieldset>
+			<legend>绑定课程</legend>
+			<button type="button" id="saveCourseToTeacher" class="btn btn-xs btn-success">
+				<span class="glyphicon glyphicon-plus-sign" style="color: green;"></span>保存
+			</button>
+			<button type="button" id="delCourseToTeacher" class="btn btn-xs btn-danger">
+				<span class="glyphicon glyphicon-minus-sign" style="color: red;"></span>删除
+			</button>
+			<form id="CourseToTeacherForm">
+				<table class="table table-bordered table-hover"
+					style="margin-top: 20px;">
+					<tbody>
+						<tr>
+							<td class="hide"><input name="id"></td>
+						</tr>
+						<tr>
+							<td><span>教师编号<span style="color: red;">*</span>：
+							</span></td>
+							<td><input placeholder="请输入教师编号" name="teacherNo" class="form-control"></td>
+							<td><span>课程<span style="color: red;">*</span>：
+							</span></td>
+							<td><input placeholder="请输入课程编号" name="courseNo" class="form-control"></td>
+						</tr>
+					</tbody>
+				</table>
+				<table class="table table-bordered table-hover fill">
+					<thead>
+						<tr>
+							<td><span>筛选信息： </span></td>
+							<td style="text-align: center;" colspan="4">
+								<span>教师编号：</span>
+								 <input id="screen-teacherNo" value="" placeholder="按教师编号搜索消息..."
+								style="width: 150px; display: inline; padding: 3px 4px;">
+								&emsp; <span>教师名字：</span>
+								 <input id="screen-teacherName" value="" placeholder="按教师名字搜索消息..."
+								style="width: 150px; display: inline; padding: 3px 4px;">
+								&emsp; <span>课程名字：</span>
+								 <input id="screen-courseName" value="" placeholder="按课程名字搜索消息..."
+								 style="width: 150px; display: inline; padding: 3px 4px;">
+								&emsp;<button style="margin-bottom: 5px"class="btn btn-xs btn-primary" id="screen-select">查询</button>
+							</td>
+						</tr>
+						
+						<tr>
+							<th style="text-align: center;"><input type="checkbox"
+								value=""></th>
+							<th>教师</th>
+							<th>教师编号</th>
+							<th>课程</th>
+<!-- 							<th>编辑</th> -->
+						</tr>
+					</thead>
+					<tbody></tbody>
+				</table>
+				<!-- 分页栏 -->
+				<div class="row">
+					<div class="col-sm-12" id="pagination"></div>
+				</div>
+			</form>
+		</fieldset>
+
+	</div>
+</div>
+	<script src="js/jquery-3.2.1.min.js"></script>
+	<script src="js/bindCourseToTeacher.js"></script>
