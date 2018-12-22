@@ -15,45 +15,25 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.hxbd.clp.dao.AuthorityDao;
 import com.hxbd.clp.dao.CaptionDao;
-import com.hxbd.clp.dao.CourseAndTeacherDao;
-import com.hxbd.clp.dao.CourseAndUserDao;
-import com.hxbd.clp.dao.CourseDao;
-import com.hxbd.clp.dao.CourseVideoDao;
 import com.hxbd.clp.dao.NoticeDao;
-import com.hxbd.clp.dao.TeacherDao;
 import com.hxbd.clp.domain.Authority;
-import com.hxbd.clp.domain.Course;
 import com.hxbd.clp.domain.CourseAndUser;
 import com.hxbd.clp.domain.CourseVideo;
 import com.hxbd.clp.domain.Notice;
-import com.hxbd.clp.domain.Teacher;
 import com.hxbd.clp.domain.User;
 import com.hxbd.clp.service.AuthorityService;
-import com.hxbd.clp.service.CourseVideoService;
 import com.hxbd.clp.service.UserService;
-import com.hxbd.clp.utils.tag.PageModel;
 
 @ContextConfiguration({"classpath:/WEB-INF/configs/applicationContext.xml"})
 @RunWith(SpringJUnit4ClassRunner.class)
 public class PicDaoTest {
 
-	@Autowired
-	private CourseDao courseDao;
 	
-	@Autowired
-	private TeacherDao teacherDao;
 	
 	@Autowired
 	private NoticeDao noticeDao;
 	
-	@Autowired
-	private CourseVideoDao courseVideoDao;
-	
-	@Autowired
-	private CourseAndUserDao courseAndUserDao;
 
-	@Autowired
-	private CourseAndTeacherDao courseAndTeacherDao;
 	
 	@Autowired
 	private CaptionDao captionDao;
@@ -61,8 +41,6 @@ public class PicDaoTest {
 	@Autowired
 	private AuthorityDao authorityDao;
 	
-	@Autowired
-	private CourseVideoService courseVideoService;
 	
 	@Autowired
 	private UserService userService;
@@ -70,64 +48,12 @@ public class PicDaoTest {
 	@Autowired
 	private AuthorityService authorityService;
 	
-	@Test
-	public void test() {
-		PageModel<Course> pageModel = new PageModel<>();
-		Map<String, Object> params = new HashMap<String, Object>();
-		Integer recordCount = courseDao.count(params);
-		if(recordCount > 0){
-			pageModel.setRecordCount(recordCount);
-			params.put("pageModel",pageModel);
-		}
-		// 查询分页记录
-		List<Course> list  = courseDao.selectByPage(params);
-		pageModel.setList(list);
-		System.err.println(pageModel.getList());
-	}
-	
-	@Test
-	public void test1() {
-		PageModel<Teacher> pageModel = new PageModel<>();
-		Map<String, Object> params = new HashMap<String, Object>();
-		Integer recordCount = teacherDao.count(params);
-		if(recordCount > 0){
-			pageModel.setRecordCount(recordCount);
-			params.put("pageModel",pageModel);
-		}
-		// 查询分页记录
-		List<Teacher> list  = teacherDao.selectTeacherList(params);
-		pageModel.setList(list);
-		System.err.println(pageModel.getList());
-		System.err.println(pageModel.getRecordCount());
-	}
-	
-	
-	@Test
-	public void test2(){
-		Teacher teacher = teacherDao.selectTeacherById(1);
-		System.err.println(teacher);
-	}
-	@Test
-	public void test3(){
-		
-		Course course = courseDao.selectById(2);
-		System.err.println(course);
-		
-	}
 	
 	@Test
 	public void test4(){
 		
 		List<Notice> notice = noticeDao.findNoticeByCourseId(3);
 		System.err.println(notice);
-		
-	}
-	
-	@Test
-	public void test5(){
-		
-		List<CourseVideo> list1 = courseVideoDao.findAllList();
-		System.err.println(list1);
 		
 	}
 
@@ -148,58 +74,11 @@ public class PicDaoTest {
 	}*/
 
 	
-	@Test
-	public void test6(){
-		List<Course> list = courseDao.findLimitEight();
-		System.err.println(list);
-	}
-	
-	@Test
-	public void test7(){
-		CourseAndUser cau = courseAndUserDao.findByUserIdAndCourseId(1,4);
-		System.err.println(cau);
-	}
-	
-	@Test
-	public void test8(){
-		Integer cau = courseAndUserDao.findStudyPeopleCountByCourseId(9);
-		System.err.println(cau);
-	}
-	
-	@Test
-	public void test9(){
-		Map<String, Object> params = new HashMap<>();
-		Course course = new Course();
-		course.setCourseName(""); 
-		params.put("course", course);
-		params.put("userId", 2); 
-		List<Course> cau = courseAndUserDao.selectStudyCourseByPage(params);
-		System.err.println(cau);
-	}
-	
-	@Test
-	public void test10(){
-		Map<String, Object> params = new HashMap<>();
-		Course course = new Course();
-		course.setCourseName(""); 
-		params.put("course", course);
-		params.put("userId", 1); 
-		Integer cau = courseAndUserDao.countStudyCourse(params);
-		System.err.println(cau);
-	}
 	
 	
-	@Test
-	public void test11(){
-		Map<String, Object> params = new HashMap<>();;
-		PageModel<Course> pageModel = new PageModel<>();
-		Integer recordCount = courseDao.count(params);
-		if(recordCount > 0){
-			pageModel.setRecordCount(recordCount);
-			params.put("pageModel",pageModel);
-		}
-		System.err.println(courseDao.selectByPage(params));
-	}
+	
+	
+	
 	
 	@Test
 	public void test12(){
@@ -236,11 +115,6 @@ public class PicDaoTest {
 		//        CourseVideo [id=6, name=mysql第一讲第二部分, url=http://www.hengmu-edu.com/HXCLVideo/courseVideo/courseVideo184268685687458.mp4, parent=1, courseId=20, remark=null, childrenList=[], captionList=[Caption [id=3, captionName=zimu.vtt, videoId=6]]], 
 		//        CourseVideo [id=5, name=mysql第一讲第一部分, url=http://www.hengmu-edu.com/HXCLVideo/courseVideo/courseVideo923439141193836.mp4, parent=1, courseId=20, remark=null, childrenList=[], captionList=[Caption [id=2, captionName=zimu.vtt, videoId=5]]]]
 
-	}
-	
-	@Test
-	public void test13(){
-		System.out.println(courseVideoService.findCourseVideoTree(20));;
 	}
 	
 	@Test
@@ -309,14 +183,6 @@ public class PicDaoTest {
 		
 		userService.batchUpdate(list);
 		
-	}
-	
-	@Test
-	public void test17(){
-		List<Course> list = courseDao.selectByExamTime();
-		for (Course course : list) {
-			System.out.println(course);
-		}
 	}
 	
 	@Test

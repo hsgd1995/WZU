@@ -18,7 +18,6 @@ public class Message implements Serializable {
 	private Integer id;
 	private String title;// 消息标题
 	private String content;// 消息内容
-	private Course course;// 针对系统消息的课程
 	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
 	private Date createTime;// 创建时间
 	private Manager creater;// 创建者
@@ -51,14 +50,6 @@ public class Message implements Serializable {
 
 	public void setContent(String content) {
 		this.content = content;
-	}
-
-	public Course getCourse() {
-		return course;
-	}
-
-	public void setCourse(Course course) {
-		this.course = course;
 	}
 
 	public Date getCreateTime() {
@@ -95,10 +86,10 @@ public class Message implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Message [id=" + id + ", title=" + title + ", content=" + content + ", course=" + course
-				+ ", createTime=" + createTime + ", creater=" + creater + ", type=" + type + ", fromName=" + fromName
-				+ "]";
+		return "Message [id=" + id + ", title=" + title + ", content=" + content + ", createTime=" + createTime
+				+ ", creater=" + creater + ", type=" + type + ", fromName=" + fromName + "]";
 	}
+
 
 	
 

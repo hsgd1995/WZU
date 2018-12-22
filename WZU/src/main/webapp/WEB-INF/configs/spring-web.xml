@@ -124,12 +124,18 @@ http://www.springframework.org/schema/aop
 	<mvc:interceptors>
 		<mvc:interceptor>
 			<!-- 拦截路径：拦截所有请求 -->
+			<mvc:mapping path="/**" />
+			<!-- 使用自定义的拦截器 -->
+			<bean class="com.hxbd.clp.interceptor.BasePathInterceptor"></bean>
+		</mvc:interceptor>
+		<mvc:interceptor>
+			<!-- 拦截路径：拦截所有请求 -->
 			<mvc:mapping path="/*" />
 			<!-- 使用自定义的拦截器 -->
 			<bean class="com.hxbd.clp.interceptor.AuthorizedInterceptor"></bean>
 		</mvc:interceptor>
 		<!-- 角色权限拦截器 -->
-		<mvc:interceptor>
+		<!-- <mvc:interceptor>
 			<mvc:mapping path="/**" />
 			<mvc:exclude-mapping path="/assets/**"/>
 			<mvc:exclude-mapping path="/bootstrap-3.3.7-dist/**"/>
@@ -142,7 +148,7 @@ http://www.springframework.org/schema/aop
 			<mvc:exclude-mapping path="/vtt/**"/>
 			<mvc:exclude-mapping path="/third/**"/>
 			<bean class="com.hxbd.clp.interceptor.RoleAuthorityInterceptor"></bean>
-		</mvc:interceptor>
+		</mvc:interceptor> -->
 	</mvc:interceptors>
 	
 	<!-- aop -->

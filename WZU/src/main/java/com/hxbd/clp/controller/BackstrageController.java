@@ -131,6 +131,66 @@ public class BackstrageController {
 		}
 	}
 
+	
+	
+	
+	@GetMapping("/main/modifyRole")
+	public String openRole(){
+		return "modifyRole";
+	}
+	
+	@GetMapping("/main/modifyRoleUser")
+	public String openRoleUser(){
+		return "modifyRoleUser";
+	}
+	
+	@GetMapping("/main/modifyRoleManager")
+	public String openRoleManager(){
+		return "modifyRoleManager";
+	}
+	
+	/**
+	 * 双创基地信息
+	 * @return
+	 */
+	@GetMapping("/main/modifyBaseBase")
+	public String openBaseBase(){
+		return "baseModifyBase";
+	}
+	/**
+	 * 进驻入口管理
+	 * @return
+	 */
+	@GetMapping("/main/modifyBaseInto")
+	public String openBaseBaseInto(){
+		return "busModifyBaseInto";
+	}
+	/**
+	 * 在驻企业项目情况
+	 * @return
+	 */
+	@GetMapping("/main/baseModifyProjectInfo")
+	public String openBaseModifyProjectInfo(){
+		return "baseModifyProjectInfo";
+	}
+	
+
+	
+	
+	
+	
+	
+	// 后台退出
+	@RequestMapping("/outlogin")
+	public String outlogin(HttpSession session) {
+		session.invalidate();
+		return "redirect:backstage";
+	}
+	
+	
+	
+	
+	
 	/**
 	 * 跳转到修改课程页面
 	 * 
@@ -331,26 +391,5 @@ public class BackstrageController {
 	public String openSysMessage(){
 		return "modifySystemMessage";
 	}
-	
-	@GetMapping("/main/modifyRole")
-	public String openRole(){
-		return "modifyRole";
-	}
-	
-	@GetMapping("/main/modifyRoleUser")
-	public String openRoleUser(){
-		return "modifyRoleUser";
-	}
-	
-	@GetMapping("/main/modifyRoleManager")
-	public String openRoleManager(){
-		return "modifyRoleManager";
-	}
-	
-	// 后台退出
-	@RequestMapping("/outlogin")
-	public String outlogin(HttpSession session) {
-		session.invalidate();
-		return "redirect:backstage";
-	}
+
 }

@@ -8,9 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.hxbd.clp.dao.TeacherDao;
-import com.hxbd.clp.domain.Course;
-import com.hxbd.clp.domain.CourseAndTeacher;
-import com.hxbd.clp.domain.Teacher;
+import com.hxbd.clp.domain.basedata.Teacher;
 import com.hxbd.clp.service.TeacherService;
 import com.hxbd.clp.utils.tag.PageModel;
 

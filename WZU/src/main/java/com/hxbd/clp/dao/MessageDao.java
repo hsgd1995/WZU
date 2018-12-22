@@ -35,9 +35,7 @@ public interface MessageDao {
 				@Result(column = "create_time",property = "createTime" ,javaType = java.util.Date.class),
 				@Result(column = "from_name",property = "fromName" ,javaType = java.lang.String.class),
 				@Result(column = "create_manager_id",property = "creater" ,javaType = com.hxbd.clp.domain.Manager.class,
-				one = @One(select="com.hxbd.clp.dao.ManagerDao.selectById")),
-				@Result(column="course_id",property="course",javaType=com.hxbd.clp.domain.Course.class,
-				one = @One(select="com.hxbd.clp.dao.CourseDao.selectById"))
+				one = @One(select="com.hxbd.clp.dao.ManagerDao.selectById"))
 		})
 		List<Message> selectByPage(Map<String, Object> parmas);
 		
@@ -60,9 +58,7 @@ public interface MessageDao {
 				@Result(column = "create_time",property = "createTime" ,javaType = java.util.Date.class),
 				@Result(column = "from_name",property = "fromName" ,javaType = java.lang.String.class),
 				@Result(column = "create_manager_id",property = "creater" ,javaType = com.hxbd.clp.domain.Manager.class,
-				one = @One(select="com.hxbd.clp.dao.ManagerDao.selectById")),
-				@Result(column="course_id",property="course",javaType=com.hxbd.clp.domain.Course.class,
-				one = @One(select="com.hxbd.clp.dao.CourseDao.selectById"))
+				one = @One(select="com.hxbd.clp.dao.ManagerDao.selectById"))
 		})
 		Message selectById(@Param("id") Integer id);
 

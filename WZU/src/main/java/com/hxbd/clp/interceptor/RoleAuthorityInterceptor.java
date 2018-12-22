@@ -18,7 +18,7 @@ import com.hxbd.clp.utils.common.RasConstants;
 public class RoleAuthorityInterceptor implements HandlerInterceptor{
 
 	
-	private static final String[] IGNORE_URI = {"backstage","backManagerLogin","outlogin"};
+	private static final String[] IGNORE_URI = {"backstage","backManagerLogin","outlogin","getSession"};
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {

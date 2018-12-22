@@ -86,9 +86,6 @@ public class MessageDynaSqlProvider {
 				if(message.getContent()!=null){
 					VALUES("content", "#{content}");
 				}
-				if(message.getCourse()!=null&&message.getCourse().getId()!=null){
-					VALUES("course_id", "#{course.id}");
-				}
 				if(message.getCreater()!=null&&message.getCreater().getId()!=null){
 					VALUES("create_manager_id", "#{creater.id}");
 				}

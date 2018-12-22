@@ -27,9 +27,6 @@ public class SystemMessageDynaSqlProvider {
 				if(systemMessage.getUser()!=null&&systemMessage.getUser().getId()!=null){
 					VALUES("user_id", "#{user.id}");
 				}
-				if(systemMessage.getCourse()!=null&&systemMessage.getCourse().getId()!=null){
-					VALUES("course_id", "#{course.id}");
-				}
 				if(systemMessage.getTitle()!=null){
 					VALUES("title", "#{title}");
 				}

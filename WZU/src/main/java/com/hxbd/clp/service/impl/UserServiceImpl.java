@@ -8,10 +8,8 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.hxbd.clp.dao.CourseAndUserDao;
 import com.hxbd.clp.dao.UserDao;
 import com.hxbd.clp.domain.CourseAndUser;
-import com.hxbd.clp.domain.Teacher;
 import com.hxbd.clp.domain.User;
 import com.hxbd.clp.service.UserService;
 import com.hxbd.clp.utils.tag.PageModel;
@@ -21,8 +19,6 @@ public class UserServiceImpl implements UserService {
 
 	@Autowired
 	private UserDao userDao;
-	@Autowired
-	private CourseAndUserDao courseAndUserDao ;
 
 	// 保存用户头像路径
 	private static final String SAVEUSERPICPATH = "C:\\Program Files\\web\\Tomcat\\webapps\\HXCLImages\\userPic";

@@ -5,12 +5,6 @@ $(function() {
 	managerHandler();
 	// 请求管理员数据事件
 	requestManager();
-	$.getScript('js/choice.js', function(data, textStatus, jqxhr) {
-		/*if (jqxhr.status == '200')
-			console.log('导入js/choice.js成功！');
-		else
-			console.log('导入js/choice.js失败！');*/
-	});
 	
 	// 搜索事件
 	managerSeach(index);

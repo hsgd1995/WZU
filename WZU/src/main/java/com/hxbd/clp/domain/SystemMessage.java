@@ -13,7 +13,6 @@ import org.springframework.format.annotation.DateTimeFormat;
 public class SystemMessage implements Serializable{
 	private Integer id;
 	private User user;
-	private Course course;
 	private String title;//标题
 	private String content;//内容
 	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
@@ -34,12 +33,6 @@ public class SystemMessage implements Serializable{
 	}
 	public void setUser(User user) {
 		this.user = user;
-	}
-	public Course getCourse() {
-		return course;
-	}
-	public void setCourse(Course course) {
-		this.course = course;
 	}
 	public String getTitle() {
 		return title;
@@ -68,11 +61,10 @@ public class SystemMessage implements Serializable{
 	public void setStatus(Integer status) {
 		this.status = status;
 	}
-	
 	@Override
 	public String toString() {
-		return "SystemMessage [id=" + id + ", user=" + user + ", course=" + course + ", title=" + title + ", content="
-				+ content + ", sendTime=" + sendTime + ", status=" + status + "]";
+		return "SystemMessage [id=" + id + ", user=" + user + ", title=" + title + ", content=" + content
+				+ ", sendTime=" + sendTime + ", status=" + status + "]";
 	}
 	
 	

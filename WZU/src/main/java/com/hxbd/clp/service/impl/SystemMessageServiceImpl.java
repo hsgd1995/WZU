@@ -3,20 +3,14 @@ package com.hxbd.clp.service.impl;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.hxbd.clp.dao.CourseAndUserDao;
-import com.hxbd.clp.dao.CourseDao;
 import com.hxbd.clp.dao.SystemMessageDao;
 import com.hxbd.clp.dao.UserDao;
-import com.hxbd.clp.domain.Course;
-import com.hxbd.clp.domain.CourseAndUser;
 import com.hxbd.clp.domain.SystemMessage;
-import com.hxbd.clp.domain.User;
 import com.hxbd.clp.service.SystemMessageService;
 import com.hxbd.clp.utils.tag.PageModel;
 
@@ -30,38 +24,10 @@ public class SystemMessageServiceImpl implements SystemMessageService {
 	
 	@Autowired
 	private SystemMessageDao systemMessageDao;
-	@Autowired
-	private CourseDao courseDao;
-	@Autowired
-	private CourseAndUserDao courseAndUserDao;
-	@Autowired
-	private UserDao userDao;
 	
 	@Override
 	public void examStudyWarn() {
 		System.out.println("开始考试时间提醒");
-		List<Course> warnCourseList = courseDao.selectByExamTime();
-		if(warnCourseList.size()>0){
-			for(int i=0;i<warnCourseList.size();i++){
-				//找出已开始学习该课程的用户
-				List<CourseAndUser> courseAndUserList =  courseAndUserDao.selectByCourseIdAndJoincourse(warnCourseList.get(i).getId());
-				User user = null;
-				SystemMessage sysMessage = null;
-				//遍历集合，找出对应用户
-				if(courseAndUserList.size()>0){
-					for (int j = 0; j < courseAndUserList.size(); j++) {
-						user = userDao.selectById(courseAndUserList.get(j).getUserId());
-						sysMessage = new SystemMessage();
-						sysMessage.setUser(user);
-						sysMessage.setCourse(warnCourseList.get(i));
-						sysMessage.setTitle("考试时间提醒，课程：《"+warnCourseList.get(i).getCourseName()+"》");
-						sysMessage.setContent("《"+warnCourseList.get(i).getCourseName()+"》 考试开始时间为："+formatDate(warnCourseList.get(i).getExamStartTime())+"，考试结束时间为："+formatDate(warnCourseList.get(i).getExamEndTime())+"，请不要错过考试时间！");
-						systemMessageDao.insert(sysMessage);
-					}
-				}
-			}
-		}
-		
 	}
 	
 	public String formatDate(Date date){

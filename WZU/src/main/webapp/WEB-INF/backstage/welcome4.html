@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8" />
-<title>恒信博大汉语言学习平台后台管理系统</title>
+<title>创新创业教育学院信息管理系统</title>
 <!-- basic styles -->
 <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
 <link rel="stylesheet" href="assets/css/font-awesome.min.css" />
@@ -48,7 +48,7 @@
 		<div class="navbar-container" id="navbar-container">
 			<div class="navbar-header pull-left">
 				<a href="#" class="navbar-brand"> <small> <i
-						class="icon-leaf"></i> 恒信博大汉语言学习平台后台管理系统&emsp;&emsp;&emsp;
+						class="icon-leaf"></i> 创新创业教育学院信息管理系统&emsp;&emsp;&emsp;
 				</small>
 				</a>
 				<!-- /.brand -->
@@ -56,27 +56,14 @@
 			<!-- /.navbar-header -->
 			
 			<div class="navbar-header pull-center">
-				<ul class="nav ace-nav">
-					<li no="1" class=" btn-info daohang" style="border-width: 0px">
-						双创基地项目组管理
-					</li>
-					<li no="2" class="btn-info daohang" style="border-width: 0px">
-						创新创业赛事管理
-					</li>
-					<li no="3" class="btn-info daohang" style="border-width: 0px">
-						大学生创新创业训练项目管理
-					</li>
-					<li no="4" class="btn-info daohang" style="border-width: 0px">
-						基础数据管理
-					</li>
-				</ul>
+			
 			</div>
 
 			<div class="navbar-header pull-right" role="navigation">
 				<ul class="nav ace-nav">
 					<li class="light-blue"><a data-toggle="dropdown" href="#"
 						class="dropdown-toggle"> <img class="nav-user-photo"
-							src="assets/avatars/user.jpg" alt="Jason's Photo" /> <span
+							src="assets/avatars/avatar6.png" alt="Jason's Photo" /> <span
 							class="user-info"> <small>欢迎登陆,</small> <span class="hide"
 								id="id"></span> <small id="username"></small>
 						</span> <i class="icon-caret-down"></i>
@@ -125,23 +112,30 @@
 				</script>
 
 				<div class="sidebar-shortcuts" id="sidebar-shortcuts">
+					<#if CheckAuthority("navigation")>
 					<div class="sidebar-shortcuts-large" id="sidebar-shortcuts-large">
-						<button class="btn btn-success">
-							<i class="icon-signal"></i>
+					<#if CheckAuthority("navigation_base")>
+						<button no="1" class="btn btn-success daohang1">
+							<span title="双创基地项目组管理">基</span>
 						</button>
-
-						<button class="btn btn-info">
-							<i class="icon-pencil"></i>
+					</#if>
+					<#if CheckAuthority("navigation_competition")>
+						<button no="2" class="btn btn-info daohang1" >
+							<span title="创新创业赛事管理">赛</span>
 						</button>
-
-						<button class="btn btn-warning">
-							<i class="icon-group"></i>
+					</#if>
+					<#if CheckAuthority("navigation_openAndEnd")>
+						<button no="3" class="btn btn-warning daohang1">
+							<span title="创新创业训练项目管理">训</span>
 						</button>
-
-						<button class="btn btn-danger">
-							<i class="icon-cogs"></i>
+					</#if>
+					<#if CheckAuthority("navigation_basedata")>
+						<button no="4" class="btn btn-danger daohang1">
+							<span title="基础数据管理">数</span>
 						</button>
+					</#if>
 					</div>
+				</#if>
 
 					<div class="sidebar-shortcuts-mini" id="sidebar-shortcuts-mini">
 						<span class="btn btn-success"></span> <span class="btn btn-info"></span>
@@ -155,105 +149,6 @@
 					<li class="active"><a> <i class="icon-dashboard"></i> <span
 							class="menu-text"> 欢迎 </span>
 					</a></li>
-				<#if CheckAuthority("pic_manage")>
-					<li>
-						<a class="dropdown-toggle"> <i class="icon-picture"></i>
-							<span class="menu-text"> 图片管理 </span> <b
-							class="arrow icon-angle-down"></b>
-						</a>
-						<ul class="submenu">
-						<#if CheckAuthority("pic_manage_updatePic")>
-							<li><a href="#" name="modifyPic"> <i
-									class="icon-double-angle-right"></i> 更新图片
-							</a></li>
-						</#if>
-						</ul>
-					</li>
-				</#if>
-				<#if CheckAuthority("course_manage")>
-					<li><a href="#" class="dropdown-toggle"> <i
-							class="icon-list"></i> <span class="menu-text"> 课程管理 </span> <b
-							class="arrow icon-angle-down"></b>
-					</a>
-						<ul class="submenu">
-						<#if CheckAuthority("course_manage_updateCourse")>
-							<li>
-								<a href="#" name="modifyCourse"> <i
-									class="icon-double-angle-right"></i> 更新课程
-								</a>
-							</li>
-						</#if>	
-							<!-- <li><a href="#" name="modifyCourseDetails"> <i
-									class="icon-double-angle-right"></i> 课程详情
-							</a></li> -->
-						<#if CheckAuthority("course_manage_courseType")>
-							<li>
-								<a href="#" name="modifyCourseType"> <i
-									class="icon-double-angle-right"></i> 课程类型
-								</a>
-							</li>
-						</#if>	
-						<#if CheckAuthority("course_manage_courseNotice")>
-							<li>
-								<a href="#" name="modifyCourseNotice"> <i
-									class="icon-double-angle-right"></i> 课程公告
-								</a>
-							</li>
-						</#if>	
-						</ul>
-					</li>
-				</#if>
-				<#if CheckAuthority("courseVideo_manage")>
-					<li>
-					<a href="#" class="dropdown-toggle"> <i
-							class="icon-facetime-video"></i> <span class="menu-text"> 视频管理 </span> <b
-							class="arrow icon-angle-down"></b>
-					</a>
-						<ul class="submenu">
-						<#if CheckAuthority("courseVideo_manage_bindTitle")>
-							<li>
-								<a href="#" name="bindTitle"> <i
-									class="icon-double-angle-right"></i> 绑定主标题
-								</a>
-							</li>
-						</#if>
-						<#if CheckAuthority("courseVideo_manage_uploadVideo")>	
-							<li>
-								<a href="#" name="modifyCourseVideo"> <i
-									class="icon-double-angle-right"></i> 上传课程视频
-								</a>
-							</li>
-						</#if>
-						</ul>
-					</li>
-				</#if>
-				<#if CheckAuthority("exam_manage")>
-					<li><a href="#" class="dropdown-toggle"> <i class="icon-pencil"></i> <span class="menu-text"> 测试题管理</span> <b class="arrow icon-angle-down"></b>
-						</a>
-						<ul class="submenu">
-						<#if CheckAuthority("exam_manage_choice")>
-							<li>
-								<a href="#" name="question"> <i class="icon-double-angle-right"></i> 选择题管理</a>
-							</li>
-						</#if>		
-						<#if CheckAuthority("exam_manage_trueAndFalseQue")>
-							<li>
-								<a href="#" name="trueAndFalseQue"> <i class="icon-double-angle-right"></i> 判断题管理</a>
-							</li>
-						</#if>		
-						<#if CheckAuthority("exam_manage_completion")>
-							<li>
-								<a href="#" name="completion"> <i class="icon-double-angle-right"></i> 填空题管理</a>
-							</li>
-						</#if>	
-						<#if CheckAuthority("exam_manage_shortAnswer")>
-							<li>
-								<a href="#" name="shortAnswer"> <i class="icon-double-angle-right"></i> 简答题管理</a>
-							</li>
-						</#if>	
-						</ul>
-					</li>
-				</#if>		
 				<#if CheckAuthority("teacher_manage")>
 					<li><a href="#" class="dropdown-toggle"> <i class="icon-twitter"></i> <span class="menu-text"> 教师管理</span> <b class="arrow icon-angle-down"></b>
 					    </a>
@@ -266,18 +161,6 @@
 						<#if CheckAuthority("teacher_manage_TeacherAndCourse")>
 							<li>
 								<a href="#" name="bindCourseToTeacher"> <i class="icon-double-angle-right"></i> 绑定课程</a>
-							</li>
-						</#if>
-						</ul>
-					</li>
-				</#if>	
-				<#if CheckAuthority("news_manage")>
-					<li><a href="#" class="dropdown-toggle"> <i class="icon-edit"></i> <span class="menu-text"> 新闻管理</span> <b class="arrow icon-angle-down"></b>
-						</a>
-						<ul class="submenu">
-						<#if CheckAuthority("news_manage_updateNews")>
-							<li>
-								<a href="#" name="modifyNews"> <i class="icon-double-angle-right"></i> 更新新闻</a>
 							</li>
 						</#if>
 						</ul>
@@ -306,9 +189,12 @@
 						</#if>	
 						<#if CheckAuthority("user_manage_manager")>
 							<li>
-								<a href="#" name="modifyManager"> <i class="icon-double-angle-right"></i> 更新管理员信息</a>
+								<a href="#" name="modifyManager"> <i class="icon-double-angle-right"></i> 更新用户信息</a>
 							</li>
 						</#if>	
+						<!-- <li>
+								<a href="#" name="modifyTeacher"> <i class="icon-double-angle-right"></i> 更新教师</a>
+							</li> -->
 						</ul>
 					</li>
 				</#if>	
@@ -343,26 +229,15 @@
 								<a href="#" name="modifyRole"> <i class="icon-double-angle-right"></i> 角色管理</a>
 							</li>
 						</#if>
-							<li><a href="#" name="modifyRoleUser"> <i class="icon-double-angle-right"></i> 前台用户角色分配</a>
-							</li>
 							<li><a href="#" name="modifyRoleManager"> <i class="icon-double-angle-right"></i> 后台用户角色分配</a>
 							</li>
 						</ul>
 					</li>
 				</#if>	
 				
-					<li><a href="#" class="dropdown-toggle"> <i class="icon-film"></i> <span class="menu-text"> 直播管理</span> <b class="arrow icon-angle-down"></b>
-						</a>
-						<ul class="submenu">
-							<li><a href="#" name="modifyNews"> <i class="icon-double-angle-right"></i> 更新直播信息</a>
-							</li>
-							<li><a href="#" name="modifyNews"> <i class="icon-double-angle-right"></i> 直播预约</a>
-							</li>
-						</ul>
-					</li>
 					
 					<!-- 由此开始 -->
-					<li><a href="#" class="dropdown-toggle"> <i class="icon-film"></i> <span class="menu-text"> 企业项目管理</span> <b class="arrow icon-angle-down"></b>
+					<li><a href="#" class="dropdown-toggle"> <i class=" icon-reorder"></i> <span class="menu-text"> 企业项目管理</span> <b class="arrow icon-angle-down"></b>
 						</a>
 						<ul class="submenu">
 							<li><a href="#" name="modifyNews"> <i class="icon-double-angle-right"></i> 对企业项目进行编号分配</a>
@@ -371,7 +246,7 @@
 							</li>
 						</ul>
 					</li>
-					<li><a href="#" class="dropdown-toggle"> <i class="icon-film"></i> <span class="menu-text"> 学院信息管理</span> <b class="arrow icon-angle-down"></b>
+					<li><a href="#" class="dropdown-toggle"> <i class="icon-asterisk"></i> <span class="menu-text"> 学院信息管理</span> <b class="arrow icon-angle-down"></b>
 						</a>
 						<ul class="submenu">
 							<li><a href="#" name="modifyNews"> <i class="icon-double-angle-right"></i> 学院信息</a>
@@ -380,16 +255,16 @@
 							</li>
 						</ul>
 					</li>
-					<li><a href="#" class="dropdown-toggle"> <i class="icon-film"></i> <span class="menu-text"> 双创基地项目组管理</span> <b class="arrow icon-angle-down"></b>
+					<li><a href="#" class="dropdown-toggle"> <i class="icon-file-alt"></i> <span class="menu-text"> 双创基地项目组管理</span> <b class="arrow icon-angle-down"></b>
 						</a>
 						<ul class="submenu">
+							<li><a href="#" name="modifyBaseBase"> <i class="icon-double-angle-right"></i> 双创基地信息</a>
+							</li>
 							<li><a href="#" name="modifyNews"> <i class="icon-double-angle-right"></i> 审批流程管理</a>
 							</li>
 							<li><a href="#" name="modifyNews"> <i class="icon-double-angle-right"></i> 统计月报表</a>
 							</li>
 							<li><a href="#" name="modifyNews"> <i class="icon-double-angle-right"></i> 发送消息</a>
-							</li>
-							<li><a href="#" name="modifyNews"> <i class="icon-double-angle-right"></i> 双创基地信息</a>
 							</li>
 							<li><a href="#" name="modifyNews"> <i class="icon-double-angle-right"></i> 项目组工位信息</a>
 							</li>
@@ -416,7 +291,7 @@
 						</ul>
 					</li>
 					
-					<li><a href="#" class="dropdown-toggle"> <i class="icon-film"></i> <span class="menu-text">创新创业赛事管理</span> <b class="arrow icon-angle-down"></b>
+					<li><a href="#" class="dropdown-toggle"> <i class="icon-star"></i> <span class="menu-text">创新创业赛事管理</span> <b class="arrow icon-angle-down"></b>
 						</a>
 						<ul class="submenu">
 							<li><a href="#" name="modifyNews"> <i class="icon-double-angle-right"></i> 审批流程管理</a>
@@ -427,7 +302,7 @@
 							</li>
 						</ul>
 					</li>
-					<li><a href="#" class="dropdown-toggle"> <i class="icon-film"></i> <span class="menu-text">大学生创新创业训练项目管理</span> <b class="arrow icon-angle-down"></b>
+					<li><a href="#" class="dropdown-toggle"> <i class="icon-cog"></i> <span class="menu-text">大学生创新创业训练项目管理</span> <b class="arrow icon-angle-down"></b>
 						</a>
 						<ul class="submenu">
 							<li><a href="#" name="modifyNews"> <i class="icon-double-angle-right"></i> 大创项目申报</a>
@@ -471,7 +346,7 @@
 
 					<ul class="breadcrumb">
 						<li><i class="icon-home home-icon"></i> <a href="main4">基础数据管理</a></li>
-						<li class="active">欢迎页面</li>
+						<li class="active"><span id="welTitle">欢迎页面</span></li>
 					</ul>
 					<!-- .breadcrumb -->
 
@@ -520,7 +395,7 @@
 	<script src="assets/js/ace.min.js"></script>
 
 	<script type="text/javascript">
-		$('.daohang').unbind().click(function(){
+		$('.daohang1').unbind().click(function(){
 			var no = $(this).attr('no');
 			if(no == '1'){
 				window.location.href = "main";

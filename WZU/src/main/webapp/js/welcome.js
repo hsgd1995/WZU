@@ -8,7 +8,7 @@ $(function() {
  * 请求服务器session
  */
 function getSession() {
-	$.get('/getSession', function(data) {
+	$.get('getSession', function(data) {
 		var $userId = data.id;
 		$('#id').text(data.id);
 		$('#username').text(data.username);
@@ -20,6 +20,10 @@ function getSession() {
  */
 function menueBind() {
 	$('#menu a').unbind().click(function() {
+		var string = $(this).html().split('</i>')[1]
+		if(string.indexOf('</')==-1){
+			$('#welTitle').html(string);
+		}
 		// 在主显示区加载页面
 		if($(this).attr('name') != null){
 			getHtml($(this).attr('name'));

@@ -3,12 +3,14 @@ package com.hxbd.clp.domain.basedata;
 import java.io.Serializable;
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 /**
  * 企业所获成果/奖项
  */
 public class Awards implements Serializable {
     private Integer id;
-
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date awardTime;//获奖时间
 
     private Integer awardLevel;//获奖等级【下拉菜单选项：1-国际级，2-国家级，3-省部级，4-市厅级，5-县局级，6-校级】

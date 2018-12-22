@@ -14,7 +14,7 @@ import org.apache.ibatis.annotations.SelectProvider;
 import org.apache.ibatis.annotations.UpdateProvider;
 
 import com.hxbd.clp.dao.provider.TeacherDynaSqlProvider;
-import com.hxbd.clp.domain.Teacher;
+import com.hxbd.clp.domain.basedata.Teacher;
 import com.hxbd.clp.utils.common.RasConstants;
 
 public interface TeacherDao {

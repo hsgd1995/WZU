@@ -12,7 +12,6 @@ import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.SelectProvider;
 import org.apache.ibatis.annotations.UpdateProvider;
 
-import com.hxbd.clp.dao.provider.CourseDynaSqlProvider;
 import com.hxbd.clp.dao.provider.UserDynaSqlProvider;
 import com.hxbd.clp.dao.provider.UserInfoDynaSqlProvider;
 import com.hxbd.clp.domain.User;

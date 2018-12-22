@@ -3,7 +3,7 @@ package com.hxbd.clp.service;
 import java.util.List;
 import java.util.Map;
 
-import com.hxbd.clp.domain.Teacher;
+import com.hxbd.clp.domain.basedata.Teacher;
 import com.hxbd.clp.utils.tag.PageModel;
 
 public interface TeacherService {

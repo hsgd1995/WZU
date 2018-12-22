@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.hxbd.clp.domain.News;
 import com.hxbd.clp.domain.User;
-import com.hxbd.clp.service.CourseService;
 import com.hxbd.clp.service.NewsService;
 import com.hxbd.clp.utils.tag.PageModel;
 
@@ -26,8 +25,6 @@ import com.hxbd.clp.utils.tag.PageModel;
 public class RedirectController {
 	
 	
-	@Resource
-	private CourseService courseService;
 	@Resource
 	private NewsService newsService;
 

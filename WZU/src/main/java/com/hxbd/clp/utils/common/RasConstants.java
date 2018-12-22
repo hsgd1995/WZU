@@ -3,6 +3,30 @@ package com.hxbd.clp.utils.common;
 
 public class RasConstants {
 
+	//--------//
+	//权限控制
+	public static final String SYSROLE = "sys_role";//角色表
+	public static final String SYSAUTHORITY = "sys_authority";//权限表
+	public static final String SYSROLEAUTHORITY = "sys_role_authority";//角色权限对应表
+	//public static final String SYSROLEUSER = "sys_role_user";//角色用户对应表
+	public static final String SYSROLEMANAGER = "sys_role_manager";//角色管理员对应表
+	public static final String MANAGERROLEAUTHORITY_SESSION = "manager_role_authority";
+	
+	
+	public static final String BASE = "base_base_info";//双创基地信息
+	public static final String BASEINTO = "bus_base_into";//基地进驻入口
+	public static final String PROJECT = "base_project_info";//B0-在驻企业项目情况
+	public static final String TEACHERTABLE = "base_teacher"; // 教师表
+	public static final String PROJECTPERSONNEL = "base_project_personnel"; // 企业员工表
+	public static final String PROJECTSUBSIDY = "base_project_subsidy"; // 资金收入
+	public static final String AWARDS = "base_awards"; // 资金收入
+	public static final String ANNEX = "base_annex"; // 资金收入
+	public static final String PROJECTINTO = "base_project_into"; // 项目进驻审批表
+	
+	
+	//--------//
+	
+	
 	// 数据库表常量
 	public static final String USERTABLE = "user_table";// 用户信息表
 	public static final String PICTABLE = "pic_table";// 图片表
@@ -11,7 +35,6 @@ public class RasConstants {
 	public static final String COURSETABLE = "course_table";// 课程表
 	public static final String COURSETYPETABLE = "course_type_table";  //课程类型表
 	public static final String COURSEDETAILSTABLE = "course_details_table";  //课程详情表
-	public static final String TEACHERTABLE = "teacher_table"; // 教师表
 	public static final String TIMETABLE = "time_table"; // 课程时间表
 	public static final String COURSEANDTEACHERTABLE = "course_and_teacher_table";	//课程和教师关联表
 	public static final String COURSEANDUSERTABLE = "course_and_user_table";	//课程和用户关联表
@@ -39,13 +62,7 @@ public class RasConstants {
 	public static final String MESSAGEANDUSERTABLE = "message_user_table";//消息表 
 	public static final String SYSTEMMESSAGE = "system_message";//系统消息表
 	
-	//权限控制
-	public static final String SYSROLE = "sys_role";//角色表
-	public static final String SYSAUTHORITY = "sys_authority";//权限表
-	public static final String SYSROLEAUTHORITY = "sys_role_authority";//角色权限对应表
-	//public static final String SYSROLEUSER = "sys_role_user";//角色用户对应表
-	public static final String SYSROLEMANAGER = "sys_role_manager";//角色管理员对应表
-	public static final String MANAGERROLEAUTHORITY_SESSION = "manager_role_authority";
+
 	
 	// 登录
 	public static final String LOGIN = "index";

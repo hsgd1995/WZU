@@ -2,6 +2,13 @@ package com.hxbd.clp.domain.basedata.base;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
+import com.hxbd.clp.domain.basedata.Awards;
+import com.hxbd.clp.domain.basedata.Teacher;
+import com.hxbd.clp.domain.bus.base.ProjectInto;
 
 /**
  * B0-在驻企业项目情况
@@ -21,7 +28,7 @@ public class Project implements Serializable {
 
     private Integer principalPoliticalStatus;//负责人信息-政治面貌【下拉菜单选项：1-中共党员，2-共青团员，3-群众】
 
-    private Integer principalSno;//负责人信息-学号
+    private String principalSno;//负责人信息-学号
 
     private Integer principalSecondaryCollegeId;//负责人信息-所在二级学院
 
@@ -42,13 +49,13 @@ public class Project implements Serializable {
     private String principalCertificate;//负责人信息-在校期间所获等级证书及技能证书
 
     private String principalScoreDescription;//负责人信息-社会实践主要成绩简述（300字以内）
-
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date projectSetupTime;//企业项目成立时间
-
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date projectEnteringTime;//企业项目入驻时间
 
     private Integer isBusinessRegistration;//企业是否已进行工商注册【下拉菜单选项：1-是，2否】
-
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date registeredTime;//注册时间
 
     private Double registrationCapital;//企业注册资金（万元）
@@ -57,7 +64,7 @@ public class Project implements Serializable {
 
     private Integer legalSex;//企业法人代表信息-性别【下拉菜单选项：1-男，2-女】
 
-    private String legalPoliticalStatus;//政治面貌【下拉菜单选项：1-中共党员，2-共青团员，3-群众】
+    private Integer legalPoliticalStatus;//政治面貌【下拉菜单选项：1-中共党员，2-共青团员，3-群众】
 
     private String legalBirthplace;//企业法人代表信息-籍贯
 
@@ -100,6 +107,15 @@ public class Project implements Serializable {
     private Integer status;//企业当前状态【下拉菜单选项：1-在驻，2-孵化成功出园，3-孵化失败出园。】
 
     private Integer baseId;//基地id
+    
+    private Integer managerId;
+    
+    private List<Teacher> teacherList;//教师
+    private List<ProjectPersonnel> projectPersonnelList;//员工
+    private List<ProjectSubsidy> ProjectSubsidyList;//收入
+    private List<Awards> awardsList;//获奖
+    
+    private List<ProjectInto> projectIntoList;
 
     private static final long serialVersionUID = 1L;
 
@@ -159,15 +175,17 @@ public class Project implements Serializable {
         this.principalPoliticalStatus = principalPoliticalStatus;
     }
 
-    public Integer getPrincipalSno() {
-        return principalSno;
-    }
+    
 
-    public void setPrincipalSno(Integer principalSno) {
-        this.principalSno = principalSno;
-    }
+    public String getPrincipalSno() {
+		return principalSno;
+	}
 
-    public Integer getPrincipalSecondaryCollegeId() {
+	public void setPrincipalSno(String principalSno) {
+		this.principalSno = principalSno;
+	}
+
+	public Integer getPrincipalSecondaryCollegeId() {
         return principalSecondaryCollegeId;
     }
 
@@ -307,15 +325,16 @@ public class Project implements Serializable {
         this.legalSex = legalSex;
     }
 
-    public String getLegalPoliticalStatus() {
-        return legalPoliticalStatus;
-    }
+    
+    public Integer getLegalPoliticalStatus() {
+		return legalPoliticalStatus;
+	}
 
-    public void setLegalPoliticalStatus(String legalPoliticalStatus) {
-        this.legalPoliticalStatus = legalPoliticalStatus == null ? null : legalPoliticalStatus.trim();
-    }
+	public void setLegalPoliticalStatus(Integer legalPoliticalStatus) {
+		this.legalPoliticalStatus = legalPoliticalStatus;
+	}
 
-    public String getLegalBirthplace() {
+	public String getLegalBirthplace() {
         return legalBirthplace;
     }
 
@@ -482,57 +501,87 @@ public class Project implements Serializable {
     public void setBaseId(Integer baseId) {
         this.baseId = baseId;
     }
+    
 
-    @Override
-    public String toString() {
-        return "Project{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", stationId=" + stationId +
-                ", principalName='" + principalName + '\'' +
-                ", principalSex=" + principalSex +
-                ", principalCorporatePosition='" + principalCorporatePosition + '\'' +
-                ", principalPoliticalStatus=" + principalPoliticalStatus +
-                ", principalSno=" + principalSno +
-                ", principalSecondaryCollegeId=" + principalSecondaryCollegeId +
-                ", principalGradeId=" + principalGradeId +
-                ", principalClass='" + principalClass + '\'' +
-                ", principalDormitory='" + principalDormitory + '\'' +
-                ", principalPhone='" + principalPhone + '\'' +
-                ", principalQq='" + principalQq + '\'' +
-                ", principalEmail='" + principalEmail + '\'' +
-                ", principalPosition='" + principalPosition + '\'' +
-                ", principalCertificate='" + principalCertificate + '\'' +
-                ", principalScoreDescription='" + principalScoreDescription + '\'' +
-                ", projectSetupTime=" + projectSetupTime +
-                ", projectEnteringTime=" + projectEnteringTime +
-                ", isBusinessRegistration=" + isBusinessRegistration +
-                ", registeredTime=" + registeredTime +
-                ", registrationCapital=" + registrationCapital +
-                ", legalName='" + legalName + '\'' +
-                ", legalSex=" + legalSex +
-                ", legalPoliticalStatus='" + legalPoliticalStatus + '\'' +
-                ", legalBirthplace='" + legalBirthplace + '\'' +
-                ", legalGrade='" + legalGrade + '\'' +
-                ", legalClazz='" + legalClazz + '\'' +
-                ", legalPosition='" + legalPosition + '\'' +
-                ", legalPhone='" + legalPhone + '\'' +
-                ", legalEmail='" + legalEmail + '\'' +
-                ", manageContent='" + manageContent + '\'' +
-                ", projectIndustry='" + projectIndustry + '\'' +
-                ", projectType='" + projectType + '\'' +
-                ", initialFunds=" + initialFunds +
-                ", workStudyNum=" + workStudyNum +
-                ", recentGraduatesNum=" + recentGraduatesNum +
-                ", previousGraduatesNum=" + previousGraduatesNum +
-                ", totalEmployment=" + totalEmployment +
-                ", totalPractice=" + totalPractice +
-                ", yearEmploymentNum=" + yearEmploymentNum +
-                ", yearPracticeNum=" + yearPracticeNum +
-                ", isEffective=" + isEffective +
-                ", isBase=" + isBase +
-                ", status=" + status +
-                ", baseId=" + baseId +
-                '}';
-    }
+    public Integer getManagerId() {
+		return managerId;
+	}
+
+	public void setManagerId(Integer managerId) {
+		this.managerId = managerId;
+	}
+
+	
+	
+	public List<Teacher> getTeacherList() {
+		return teacherList;
+	}
+
+	public void setTeacherList(List<Teacher> teacherList) {
+		this.teacherList = teacherList;
+	}
+
+	public List<ProjectPersonnel> getProjectPersonnelList() {
+		return projectPersonnelList;
+	}
+
+	public void setProjectPersonnelList(List<ProjectPersonnel> projectPersonnelList) {
+		this.projectPersonnelList = projectPersonnelList;
+	}
+
+	public List<ProjectSubsidy> getProjectSubsidyList() {
+		return ProjectSubsidyList;
+	}
+
+	public void setProjectSubsidyList(List<ProjectSubsidy> projectSubsidyList) {
+		ProjectSubsidyList = projectSubsidyList;
+	}
+
+	public List<Awards> getAwardsList() {
+		return awardsList;
+	}
+
+	public void setAwardsList(List<Awards> awardsList) {
+		this.awardsList = awardsList;
+	}
+
+	
+	
+	public List<ProjectInto> getProjectIntoList() {
+		return projectIntoList;
+	}
+
+	public void setProjectIntoList(List<ProjectInto> projectIntoList) {
+		this.projectIntoList = projectIntoList;
+	}
+
+	@Override
+	public String toString() {
+		return "Project [id=" + id + ", name=" + name + ", stationId=" + stationId + ", principalName=" + principalName
+				+ ", principalSex=" + principalSex + ", principalCorporatePosition=" + principalCorporatePosition
+				+ ", principalPoliticalStatus=" + principalPoliticalStatus + ", principalSno=" + principalSno
+				+ ", principalSecondaryCollegeId=" + principalSecondaryCollegeId + ", principalGradeId="
+				+ principalGradeId + ", principalClass=" + principalClass + ", principalDormitory=" + principalDormitory
+				+ ", principalPhone=" + principalPhone + ", principalQq=" + principalQq + ", principalEmail="
+				+ principalEmail + ", principalPosition=" + principalPosition + ", principalCertificate="
+				+ principalCertificate + ", principalScoreDescription=" + principalScoreDescription
+				+ ", projectSetupTime=" + projectSetupTime + ", projectEnteringTime=" + projectEnteringTime
+				+ ", isBusinessRegistration=" + isBusinessRegistration + ", registeredTime=" + registeredTime
+				+ ", registrationCapital=" + registrationCapital + ", legalName=" + legalName + ", legalSex=" + legalSex
+				+ ", legalPoliticalStatus=" + legalPoliticalStatus + ", legalBirthplace=" + legalBirthplace
+				+ ", legalGrade=" + legalGrade + ", legalClazz=" + legalClazz + ", legalPosition=" + legalPosition
+				+ ", legalPhone=" + legalPhone + ", legalEmail=" + legalEmail + ", manageContent=" + manageContent
+				+ ", projectIndustry=" + projectIndustry + ", projectType=" + projectType + ", initialFunds="
+				+ initialFunds + ", workStudyNum=" + workStudyNum + ", recentGraduatesNum=" + recentGraduatesNum
+				+ ", previousGraduatesNum=" + previousGraduatesNum + ", totalEmployment=" + totalEmployment
+				+ ", totalPractice=" + totalPractice + ", yearEmploymentNum=" + yearEmploymentNum + ", yearPracticeNum="
+				+ yearPracticeNum + ", isEffective=" + isEffective + ", isBase=" + isBase + ", status=" + status
+				+ ", baseId=" + baseId + ", managerId=" + managerId + ", teacherList=" + teacherList
+				+ ", projectPersonnelList=" + projectPersonnelList + ", ProjectSubsidyList=" + ProjectSubsidyList
+				+ ", awardsList=" + awardsList + ", projectIntoList=" + projectIntoList + "]";
+	}
+
+	
+
+	
 }

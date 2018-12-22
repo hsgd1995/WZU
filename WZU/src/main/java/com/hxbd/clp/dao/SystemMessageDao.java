@@ -40,8 +40,6 @@ public interface SystemMessageDao {
 	@SelectProvider(type = SystemMessageDynaSqlProvider.class, method = "selectByParma")
 	@Results(value = {
 			@Result(column = "id",property = "id" ,javaType = java.lang.Integer.class),
-			@Result(column="course_id",property="course",javaType=com.hxbd.clp.domain.Course.class,
-			one = @One(select="com.hxbd.clp.dao.CourseDao.selectById")),
 			@Result(column="user_id",property="user",javaType=com.hxbd.clp.domain.User.class,
 			one=@One(select="com.hxbd.clp.dao.UserDao.selectById")),
 			@Result(column="send_time",property="sendTime",javaType=java.util.Date.class)
@@ -64,8 +62,6 @@ public interface SystemMessageDao {
 	@Select("select * from "+RasConstants.SYSTEMMESSAGE+" where id = #{id}")
 	@Results(value = {
 					@Result(column = "id",property = "id" ,javaType = java.lang.Integer.class),
-					@Result(column="course_id",property="course",javaType=com.hxbd.clp.domain.Course.class,
-					one = @One(select="com.hxbd.clp.dao.CourseDao.selectById")),
 					@Result(column="user_id",property="user",javaType=com.hxbd.clp.domain.User.class,
 					one=@One(select="com.hxbd.clp.dao.UserDao.selectById")),
 					@Result(column="send_time",property="sendTime",javaType=java.util.Date.class)

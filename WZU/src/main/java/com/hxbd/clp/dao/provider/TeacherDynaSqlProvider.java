@@ -4,7 +4,7 @@ import java.util.Map;
 
 import org.apache.ibatis.jdbc.SQL;
 
-import com.hxbd.clp.domain.Teacher;
+import com.hxbd.clp.domain.basedata.Teacher;
 import com.hxbd.clp.utils.common.RasConstants;
 
 public class TeacherDynaSqlProvider {
@@ -17,12 +17,6 @@ public class TeacherDynaSqlProvider {
 				ORDER_BY("id desc");
 				Teacher teacher  = (Teacher) params.get("teacher");
 				if(teacher != null){
-					if(teacher.getTeacherName() != null &&  !teacher.getTeacherName().equals("")){
-						WHERE(" teacher_name like CONCAT('%',#{teacher.teacherName},'%')");
-					}
-					if(teacher.getTeacherNo() != null &&  !teacher.getTeacherNo().equals("")){
-						WHERE(" teacher_no like CONCAT('%',#{teacher.teacherNo},'%')");
-					}
 				}
 			}
 		}.toString();
@@ -39,12 +33,6 @@ public class TeacherDynaSqlProvider {
 				FROM(RasConstants.TEACHERTABLE);
 				Teacher teacher  = (Teacher) params.get("teacher");
 				if(teacher != null){
-					if(teacher.getTeacherName() != null &&  !teacher.getTeacherName().equals("")){
-						WHERE(" teacher_name like CONCAT('%',#{teacher.teacherName},'%')");
-					}
-					if(teacher.getTeacherNo() != null &&  !teacher.getTeacherNo().equals("")){
-						WHERE(" teacher_no like CONCAT('%',#{teacher.teacherNo},'%')");
-					}
 				}
 			}
 		}.toString();
@@ -59,25 +47,27 @@ public class TeacherDynaSqlProvider {
 			{
 				if(teacher != null){
 					INSERT_INTO(RasConstants.TEACHERTABLE);
-					if(teacher.getTeacherNo() != null && !teacher.getTeacherNo().equals("")){
-						VALUES("teacher_no", "#{teacherNo}");
+					if(teacher.getName()!=null){
+						VALUES("name", "#{name}");
 					}
-					if(teacher.getTeacherName() != null && !teacher.getTeacherName().equals("")){
-						VALUES("teacher_name", "#{teacherName}");
+					if(teacher.getSex()!=null){
+						VALUES("sex", "#{sex}");
 					}
-					if(teacher.getPosition() != null && !teacher.getPosition().equals("")){
+					if(teacher.getSc()!=null&&teacher.getSc().getId()!=null){
+						VALUES("secondary_college_id", "#{sc.id}");
+					}
+					if(teacher.getPosition()!=null){
 						VALUES("position", "#{position}");
 					}
-					if(teacher.getIntroduce() != null && !teacher.getIntroduce().equals("")){
-						VALUES("introduce", "#{introduce}");
+					if(teacher.getJob()!=null){
+						VALUES("job", "#{job}");
 					}
-					if(teacher.getContent() != null && !teacher.getContent().equals("")){
-						VALUES("content", "#{content}");
+					if(teacher.getPhone()!=null){
+						VALUES("phone", "#{phone}");
 					}
-					if(teacher.getTeacherPic() != null && !teacher.getTeacherPic().equals("")){
-						VALUES("teacher_pic", "#{teacherPic}");
+					if(teacher.getProjectId()!=null){
+						VALUES("project_id", "#{projectId}");
 					}
-					VALUES("remark", "#{remark}");
 				}
 			}
 		}.toString();
@@ -88,25 +78,27 @@ public class TeacherDynaSqlProvider {
 			{
 				if(teacher != null){
 					UPDATE(RasConstants.TEACHERTABLE);
-					if(teacher.getTeacherNo() != null && !teacher.getTeacherNo().equals("")){
-						SET("teacher_no = #{teacherNo}");
+					if(teacher.getName()!=null){
+						SET("name=#{name}");
 					}
-					if(teacher.getTeacherName() != null && !teacher.getTeacherName().equals("")){
-						SET("teacher_name = #{teacherName}");
+					if(teacher.getSex()!=null){
+						SET("sex=#{sex}");
 					}
-					if(teacher.getPosition() != null && !teacher.getPosition().equals("")){
-						SET("position = #{position}");
+					if(teacher.getSc()!=null&&teacher.getSc().getId()!=null){
+						SET("secondary_college_id=#{sc.id}");
 					}
-					if(teacher.getIntroduce() != null && !teacher.getIntroduce().equals("")){
-						SET("introduce = #{introduce}");
+					if(teacher.getIsPosition()!=null){
+						SET("position=#{position}");
 					}
-					if(teacher.getContent() != null && !teacher.getContent().equals("")){
-						SET("content = #{content}");
+					if(teacher.getJob()!=null){
+						SET("job=#{job}");
 					}
-					if(teacher.getTeacherPic() != null && !teacher.getTeacherPic().equals("")){
-						SET("teacher_pic = #{teacherPic}");
+					if(teacher.getPhone()!=null){
+						SET("phone=#{phone}");
 					}
-					SET("remark = #{remark}");
+					if(teacher.getProjectId()!=null){
+						SET("project_id=#{projectId}");
+					}
 					WHERE(" id = #{id} ");
 				}
 			}
