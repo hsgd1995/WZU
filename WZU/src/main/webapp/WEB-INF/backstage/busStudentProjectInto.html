@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>学生申请进驻基地</title>
+
+<style type="text/css">
+.myModal{
+		width:100%;
+		padding:0 auto;
+	}
+	
+	.myModal-dialog{
+		width:1200px;
+		margin-left: 0 auto;
+	}
+	
+	.myModal-content{
+		width:1200px; 
+		position: relative;
+	}
+
+	.myModal-body{
+		margin-left:10px;
+	}
+
+</style>
+</head>
+<body>
+<div class="panel panel-default" style="margin-top: 20px;margin-left: 20px;">
+	<div style="margin-left: 20px">
+		<fieldset>
+			<legend>${projectTitle}</legend>
+			<button id="showAndHideBtn" type="button" class="btn btn-xs btn-success"><span id="shouAndHideIcon" class="glyphicon glyphicon-plus-sign" style="color: green;"></span><span id="shouAndHide">展开</span></button>
+			<#if keyword =='gw001'>  
+			<button type="button" id="saveManager" class="btn btn-xs btn-success">
+				<span class="glyphicon glyphicon-plus-sign" style="color: green;"></span>申请
+			</button>
+			</#if>
+			<#if keyword =='gw003'>  
+			<!-- <button type="button" id="delManager" class="btn btn-xs btn-danger">
+				<span class="glyphicon glyphicon-minus-sign" style="color: red;"></span>删除
+			</button> -->
+			</#if>
+			<#if keyword =='gw001'>  
+			<button type="button" class="btn btn-xs btn-primary"
+				onclick="clearManagerFormFunc();">
+				<span class="glyphicon glyphicon-minus-sign"></span>重置
+			</button>
+			</#if>
+			<div id="demo" class="panel-collapse collapse">
+			<input type="hidden" value="${keyword}" id="keyword">
+			<form id="managerForm">
+				<table class="table table-bordered table-hover"
+					style="margin-top: 20px;">
+					<tbody>
+						<tr>
+							<td class="hide"><input name="id"></td>
+							<td><span>项目名称<span style="color: red;">*</span>：
+							</span></td>
+							<td><input name="name" class="form-control"></td>
+						</tr>
+						<tr>
+							<td><span>项目成立时间<span style="color: red;">*</span>：
+							</span></td>
+							<td><input name="projectSetupTime" type="date" class="form-control"></td>
+						</tr>
+						<tr>
+							<td><span>项目入驻时间<span style="color: red;">*</span>：
+							</span></td>
+							<td><input name="projectEnteringTime" type="date" class="form-control"></td>
+						</tr>
+						<tr>
+							<td><span>是否工商注册<span style="color: red;">*</span>：
+							</span></td>
+							<td>
+								<select name="isBusinessRegistration" type="date" class="form-control">
+									<option value="">请选择...</option>
+									<option value="1">是</option>
+									<option value="2">否</option>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<td><span>注册时间<span style="color: red;">*</span>：
+							</span></td>
+							<td>
+								<input name="registeredTime" type="date" class="form-control">
+							</td>
+						</tr>
+						<tr>
+							<td><span>注册资金（万元）<span style="color: red;">*</span>：
+							</span></td>
+							<td>
+								<input name="registrationCapital"  class="form-control">
+							</td>
+						</tr>
+						<tr>
+							<td><span>企业所属行业:<span style="color: red;">*</span>：
+							</span></td>
+							<td>
+								<select name="projectIndustry"  class="form-control">
+									<option value="">请选择...</option>
+									<option value="1">农、林、牧、渔业</option>
+									<option value="2">采矿业</option>
+									<option value="3">制造业</option>
+									<option value="4">电力、热力、燃气及水的生产和供应业</option>
+									<option value="5">环境和公共设施管理业</option>
+									<option value="6">建筑业</option>
+									<option value="7">交通运输、仓储业和邮政业</option>
+									<option value="8">信息传输、计算机服务和软件业</option>
+									<option value="9">批发和零售业</option>
+									<option value="10">住宿、餐饮业</option>
+									<option value="11">金融、保险业</option>
+									<option value="12">房地产业</option>
+									<option value="13">租赁和商务服务业</option>
+									<option value="14">科学研究、技术服务和地质勘查业</option>
+									<option value="15">水利、环境和公共设施管理业</option>
+									<option value="16">居民服务和其他服务业</option>
+									<option value="17">教育</option>
+									<option value="18">卫生、社会保障和社会服务业</option>
+									<option value="19">文化、体育、娱乐业</option>
+									<option value="20">综合（含投资类、主业不明显）</option>
+									<option value="21">其它</option>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<td><span>负责人信息-姓名<span style="color: red;">*</span>：
+							</span></td>
+							<td>
+								<input name="principalName"  class="form-control">
+							</td>
+						</tr>
+						<tr>
+							<td><span>负责人信息-性别<span style="color: red;">*</span>：
+							</span></td>
+							<td>
+								<select name="principalSex"  class="form-control">
+									<option value="1">男</option>
+									<option value="2">女</option>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<td><span>负责人信息-企业职务<span style="color: red;">*</span>：
+							</span></td>
+							<td>
+								<input name="principalCorporatePosition"  class="form-control">
+							</td>
+						</tr>
+						<tr>
+							<td><span>负责人信息-政治面貌:<span style="color: red;">*</span>：
+							</span></td>
+							<td>
+								<select name="principalPoliticalStatus" class="form-control">
+									<option value="">请选择...</option>
+									<option value="1">中共党员</option>
+									<option value="2">共青团员</option>
+									<option value="3">群众</option>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<td><span>负责人信息-学号:<span style="color: red;">*</span>：
+							</span></td>
+							<td><input name="principalSno" class="form-control"></td>
+						</tr>
+						<tr>
+							<td><span>负责人信息-所在二级学院:<span style="color: red;">*</span>：
+							</span></td>
+							<td>
+								<select name="principalSecondaryCollegeId" class="form-control">
+									<option value="">请选择...</option>
+									<option value="1">宝石与艺术设计学院</option>
+									<option value="2">外国语学</option>
+									<option value="3">商学院</option>
+									<option value="4">机械化工学院</option>
+									<option value="5">教师教育学院</option>
+									<option value="6">大数据与软件工程学院</option>
+									<option value="7">电子与信息工程学院</option>
+									<option value="8">文学与传媒学院</option>
+									<option value="9">法学与公共管理学院</option>
+									<option value="10">马克思主义学院</option>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<td><span>负责人信息-所在年级:<span style="color: red;">*</span>：
+							</span></td>
+							<td>
+								<select name="principalGradeId" class="form-control">
+									<option value="">请选择...</option>
+									<option value="2013">2013</option>
+									<option value="2014">2014</option>
+									<option value="2015">2015</option>
+									<option value="2016">2016</option>
+									<option value="2017">2017</option>
+									<option value="2018">2018</option>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<td><span>负责人信息-班级:<span style="color: red;">*</span>：
+							</span></td>
+							<td><input name="principalClass" class="form-control"></td>
+						</tr>
+						<tr>
+							<td><span>负责人信息-所在宿舍:<span style="color: red;">*</span>：
+							</span></td>
+							<td><input name="principalDormitory" class="form-control"></td>
+						</tr>
+						<tr>
+							<td><span>负责人信息-联系电话:<span style="color: red;">*</span>：
+							</span></td>
+							<td><input name="principalPhone" class="form-control"></td>
+						</tr>
+						<tr>
+							<td><span>负责人信息-QQ号:<span style="color: red;">*</span>：
+							</span></td>
+							<td><input name="principalQq" class="form-control"></td>
+						</tr>
+						<tr>
+							<td><span>负责人信息-个人电子邮箱:<span style="color: red;">*</span>：
+							</span></td>
+							<td><input name="principalEmail" class="form-control"></td>
+						</tr>
+						<tr>
+							<td><span>负责人信息-在校期间担任学生职务情况:<span style="color: red;">*</span>：
+							</span></td>
+							<td><input name="principalPosition" class="form-control"></td>
+						</tr>
+						<tr>
+							<td><span>负责人信息-在校期间所获等级证书及技能证书:<span style="color: red;">*</span>：
+							</span></td>
+							<td><input name="principalCertificate" class="form-control"></td>
+						</tr>
+						<tr>
+							<td><span>负责人信息-社会实践主要成绩简述:<span style="color: red;">*</span>：
+							</span></td>
+							<td><textarea cols="70" rows="10" name="principalScoreDescription" class="form-control">
+							</textarea></td>
+						</tr>
+						<!-- 企业法人代表信息--,,, -->
+						<tr>
+							<td><span>企业法人代表信息:<span style="color: red;">*</span>：
+							</span></td>
+							<td>
+								<table id="legal" class="table table-bordered table-hover">
+									<tr>
+										<td><span>姓名:<span style="color: red;">*</span>：
+										</span></td>
+										<td><input name="legalName" class="form-control"></td>
+									</tr>
+									<tr>
+										<td><span>性别:<span style="color: red;">*</span>：
+										</span></td>
+										<td><select name="legalSex" class="form-control">
+												<option value="1">男</option>
+												<option value="2">女</option>
+											</select>
+										</td>
+									</tr>
+									<tr>
+										<td><span>政治面貌:<span style="color: red;">*</span>：
+										</span></td>
+										<td>
+											<select name="legalPoliticalStatus" class="form-control">
+												<option value="">请选择...</option>
+												<option value="1">中共党员</option>
+												<option value="2">共青团员</option>
+												<option value="3">群众</option>
+											</select>
+										</td>
+									</tr>
+									<tr>
+										<td><span>籍贯:<span style="color: red;">*</span>：
+										</span></td>
+										<td>
+											<input name="legalBirthplace" class="form-control">
+										</td>
+									</tr>
+									<tr>
+										<td><span>所在年级:<span style="color: red;">*</span>：
+										</span></td>
+										<td>
+											<select name="legalGrade" class="form-control">
+												<option value="">请选择...</option>
+												<option value="2013">2013</option>
+												<option value="2014">2014</option>
+												<option value="2015">2015</option>
+												<option value="2016">2016</option>
+												<option value="2017">2017</option>
+												<option value="2018">2018</option>
+											</select>
+										</td>
+									</tr>
+									<tr>
+										<td><span>所在班级/单位:<span style="color: red;">*</span>：
+										</span></td>
+										<td>
+											<input name="legalClazz" class="form-control">
+										</td>
+									</tr>
+									<tr>
+										<td><span>所在单位职务:<span style="color: red;">*</span>：
+										</span></td>
+										<td>
+											<input name="legalPosition" class="form-control">
+										</td>
+									</tr>
+									<tr>
+										<td><span>联系电话:<span style="color: red;">*</span>：
+										</span></td>
+										<td>
+											<input name="legalPhone" class="form-control">
+										</td>
+									</tr>
+									<tr>
+										<td><span>邮箱:<span style="color: red;">*</span>：
+										</span></td>
+										<td>
+											<input name="legalEmail" class="form-control">
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+						<!-- ,,,企业法人代表信息-->
+						
+						
+						
+						<tr>
+							<td><span>企业类型:<span style="color: red;">*</span>：
+							</span></td>
+							<td><select name="projectType"  class="form-control">
+								<option value="">请选择...</option>
+								<option value="1">先进制造业</option>
+								<option value="2">现代服务业</option>
+								<option value="3">现代农业</option>
+								<option value="4">批发零售业</option>
+								<option value="5">其他</option>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<td><span>初始投资资金（万元）<span style="color: red;">*</span>：
+							</span></td>
+							<td>
+								<input name="initialFunds"  class="form-control">
+							</td>
+						</tr>
+						<tr>
+							<td><span>勤工助学岗位数<span style="color: red;">*</span>：
+							</span></td>
+							<td>
+								<input name="workStudyNum"  class="form-control">
+							</td>
+						</tr>
+						<tr>
+							<td><span>应届毕业生人数<span style="color: red;">*</span>：
+							</span></td>
+							<td>
+								<input name="recentGraduatesNum"  class="form-control">
+							</td>
+						</tr>
+						<tr>
+							<td><span>往届毕业生人数<span style="color: red;">*</span>：
+							</span></td>
+							<td>
+								<input name="previousGraduatesNum"  class="form-control">
+							</td>
+						</tr>
+						<tr>
+							<td><span>累计就业人数<span style="color: red;">*</span>：
+							</span></td>
+							<td>
+								<input name="totalEmployment"  class="form-control">
+							</td>
+						</tr>
+						<tr>
+							<td><span>累计实习人数<span style="color: red;">*</span>：
+							</span></td>
+							<td>
+								<input name="totalPractice"  class="form-control">
+							</td>
+						</tr>
+						<tr>
+							<td><span>本年度就业人数<span style="color: red;">*</span>：
+							</span></td>
+							<td>
+								<input name="yearEmploymentNum"  class="form-control">
+							</td>
+						</tr>
+						<tr>
+							<td><span>本年度实习人数<span style="color: red;">*</span>：
+							</span></td>
+							<td>
+								<input name="yearPracticeNum"  class="form-control">
+							</td>
+						</tr>
+						<tr>
+							<td><span>是否有知识产权<span style="color: red;">*</span>：
+							</span></td>
+							<td>
+								<select name="isEffective"  class="form-control">
+									<option value="">请选择...</option>
+									<option value="1">是</option>
+									<option value="2">否</option>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<td><span>是否有见习基地<span style="color: red;">*</span>：
+							</span></td>
+							<td>
+								<select name="isBase"  class="form-control">
+									<option value="">请选择...</option>
+									<option value="1">是</option>
+									<option value="2">否</option>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<td><span>企业当前状态<span style="color: red;">*</span>：
+							</span></td>
+							<td>
+								<select name="status"  class="form-control">
+									<option value="">请选择...</option>
+									<option value="1">在驻</option>
+									<option value="2">孵化成功出园</option>
+									<option value="3">孵化失败出园</option>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<td><span>经营内容<span style="color: red;">*</span>：
+							</span></td>
+							<td>
+								<textarea cols="50" rows="10" name="manageContent"  class="form-control">
+								</textarea>
+							</td>
+						</tr>
+						<tr>
+							<td><span>项目指导老师信息:<span style="color: red;">*</span>：
+							</span></td>
+							<td id="teacher">
+								<button onclick="openModal('myModalTeacher')" type="button" id="random" class="btn btn-xs btn-success">
+									编辑指导老师信息
+								</button>
+							</td>
+						</tr>
+						<tr>
+							<td><span>企业项目员工信息:<span style="color: red;">*</span>：
+							</span></td>
+							<td >
+								<button onclick="openModal('myModalPersonal')" type="button" id="random" class="btn btn-xs btn-success">
+									编辑企业项目员工信息
+								</button>
+							</td>
+						</tr>
+						<tr>
+							<td><span>资金收入:<span style="color: red;">*</span>：
+							</span></td>
+							<td>
+								<button onclick="openModal('myModalProjectSubsidy')" type="button" id="random" class="btn btn-xs btn-success">
+									编辑资金收入
+								</button>
+							</td>
+						</tr>
+						<tr>
+							<td><span>项目获奖:<span style="color: red;">*</span>：
+							</span></td>
+							<td>
+								<button onclick="openModal('myModalProjectAwards')" type="button" id="random" class="btn btn-xs btn-success">
+									编辑项目获奖
+								</button>
+							</td>
+						</tr>
+						<tr>
+							<td><span>附件:<span style="color: red;">*</span>：
+							</span></td>
+							<td>
+							<#if keyword =='gw001'> 
+								<input type="file" value="上传文件" multiple="multiple" id="annex" name="annex">
+							</#if>
+							<#if keyword !='gw001'> 
+								<input type="button" value="下载附件" id="downannex" name="downannex">
+							</#if>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				</form>
+			</div>
+				<table class="table table-bordered table-hover fill">
+					<thead>
+						<tr>
+							<th style="text-align: center;"><input type="checkbox"
+								value=""></th>
+							<th>项目名称</th>
+							<th>负责人</th>
+							<th>项目成立时间</th>
+							<th>项目入驻时间</th>
+							<th>查看详情</th>
+							<#if keyword !='gw001'> 
+							<th>审批</th>
+							<#else>
+							<th>查看审批</th>
+							</#if>
+						</tr>
+					</thead>
+					<tbody></tbody>
+				</table>
+			
+				<!-- 分页栏 -->
+				<div class="row">
+					<div class="col-sm-12" id="pagination"></div>
+				</div>
+		</fieldset>
+
+	</div>
+	
+		<!-- 模态框 -->	
+<!-- <div class="modal fade"  id="myModal" tabindex="-1"role="dialog" aria-labelledby="myModalLabel"  aria-hidden="true">-->
+<div class="modal myModal"  id="myModalTeacher" tabindex="-1"role="dialog" aria-labelledby="myModalLabel"  aria-hidden="true">
+	<div class="modal-dialog myModal-dialog" >
+		<div class="modal-content myModal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" 
+						aria-hidden="true">×
+				</button>
+				<h4 class="modal-title" id="myModalLabel">
+					指导教师
+				</h4>
+			</div>
+			<div class="modal-body myModal-body">
+				<table id="myModalAllTeacher" name="myModalAllTeacher" class="table table-bordered table-hover">
+					<tr>
+						<td><input id="myModalAllTeacherAllSelect" type="checkbox"></td>
+						<td>姓名</td>
+						<td>性别</td>
+						<td>所在单位</td>
+						<td>职务</td>
+						<td>职称</td>
+						<td>联系电话</td>
+					</tr>
+					<tr id="myModalAllTeacherTr0" name="myModalAllTeacherTr">
+						<td><input no="myModalAllTeacherTr0" name="myModalAllTeacherSelect" type="checkbox"></td>
+						<td><input name="teacherName" class="form-control"></td>
+						<td><select name="teacherSex" class="form-control">
+								<option value="1">男</option>
+								<option value="2">女</option>
+							</select>
+						</td>
+						<td><input name="teacherClass" class="form-control">
+						</td>
+						<td><input name="teacherPosition" class="form-control">
+						</td>
+						<td><select name="teacherPositionCall" class="form-control">
+							<option value="">请选择...</option>
+							<option value="1">正高级</option>
+							<option value="2">副高级</option>
+							<option value="3">中级</option>
+							<option value="4">初级</option>
+							<option value="5">无职称</option>
+						</select>
+						</td>
+						<td><input name="teacherPhoto" class="form-control">
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div class="modal-footer">
+			<button id="myModalAllTeacherAdd" type="button" class="btn btn-success" >增加
+				</button>
+				<button id="myModalAllTeacherDel" type="button" class="btn btn-danger" >删除
+				</button>
+			
+				<button type="button" class="btn btn-default" 
+						data-dismiss="modal">关闭
+				</button>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+			<!-- 模态框 -->	
+<!-- <div class="modal fade"  id="myModal" tabindex="-1"role="dialog" aria-labelledby="myModalLabel"  aria-hidden="true">-->
+<div class="modal myModal"  id="myModalPersonal" tabindex="-1"role="dialog" aria-labelledby="myModalLabel"  aria-hidden="true">
+	<div class="modal-dialog myModal-dialog" >
+		<div class="modal-content myModal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" 
+						aria-hidden="true">×
+				</button>
+				<h4 class="modal-title" id="myModalLabel">
+					企业项目员工信息
+				</h4>
+			</div>
+			<div class="modal-body myModal-body">
+				<table id="allTimePersonnel" name="allTimePersonnel" class="table table-bordered table-hover">
+				<tr>
+					<td><input id="myModalPersonalAllSelect" type="checkbox"></td>
+					<td>类型</td>
+					<td>姓名</td>
+					<td>性别</td>
+					<td>所在班级/单位</td>
+					<td>企业职务</td>
+					<td>联系电话</td>
+				</tr>
+					<tr id="myModalPersonalTr0" name="myModalPersonalTr">
+					<td><input no="myModalPersonalTr0" name="myModalPersonalSelect" type="checkbox"></td>
+						<td><select name="personnelType" class="form-control">
+								<option value="">请选择...</option>
+								<option value="1">全职</option>
+								<option value="2">兼职</option>
+							</select>
+						</td>
+						<td><input name="personnelName" class="form-control"></td>
+						<td><select name="personnelSex" class="form-control">
+								<option value="1">男</option>
+								<option value="2">女</option>
+							</select>
+						</td>
+						<td><input name="personnelClass" class="form-control">
+						</td>
+						<td><input name="personnelPosition" class="form-control">
+						</td>
+						<td><input name="personnelPhoto" class="form-control">
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div class="modal-footer">
+				<button id="myModalPersonalAdd" type="button" class="btn btn-success" >增加
+				</button>
+				<button id="myModalPersonalDel" type="button" class="btn btn-danger" >删除
+				</button>
+			
+				<button type="button" class="btn btn-default" 
+						data-dismiss="modal">关闭
+				</button>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<!-- 模态框 -->	
+<!-- <div class="modal fade"  id="myModal" tabindex="-1"role="dialog" aria-labelledby="myModalLabel"  aria-hidden="true">-->
+<div class="modal myModal"  id="myModalProjectSubsidy" tabindex="-1"role="dialog" aria-labelledby="myModalLabel"  aria-hidden="true">
+	<div class="modal-dialog myModal-dialog" >
+		<div class="modal-content myModal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" 
+						aria-hidden="true">×
+				</button>
+				<h4 class="modal-title" id="myModalLabel">
+					资金收入
+				</h4>
+			</div>
+			<div class="modal-body myModal-body">
+				<table id="ProjectSubsidy" name="ProjectSubsidy" class="table table-bordered table-hover ProjectSubsidy">
+									<tr>
+										<td><input id="myModalProjectSubsidyAllSelect" type="checkbox"></td>
+										<td>类型</td>
+										<td>时间</td>
+										<td>来源名称</td>
+										<td>金额</td>
+									</tr>
+									<tr id="myModalProjectSubsidyTr0" name="myModalProjectSubsidyTr">
+										<td><input no="myModalProjectSubsidyTr0" name="myModalProjectSubsidySelect" type="checkbox"></td>
+										<td><select name="projectSubsidyType" class="form-control">
+											<option value="">请选择...</option>
+											<option value="1">获得投资</option>
+											<option value="2">享受管理服务补助资金</option>
+											<option value="3">享受房租和宽带接入补助</option>
+											<option value="4">享受水电费补助</option>
+											<option value="5">享受一次性创业补贴</option>
+											<option value="6">享受吸纳就业困难群体一次性补助</option>
+											<option value="7">享受社会保险补贴</option>
+											<option value="8">获得创业担保贷款</option>
+										</select>
+										</td>
+									
+										<td><input name="projectSubsidyTime" type="date" class="form-control">
+										</td>
+									
+										<td><input name="projectSubsidyForm"  class="form-control">
+										</td>
+									
+										<td><input name="projectSubsidyMoney"  class="form-control">
+										</td>
+									</tr>
+								</table>
+			</div>
+			<div class="modal-footer">
+				<button id="myModalProjectSubsidyAdd" type="button" class="btn btn-success" >增加
+				</button>
+				<button id="myModalProjectSubsidyDel" type="button" class="btn btn-danger" >删除
+				</button>
+				<button type="button" class="btn btn-default" 
+						data-dismiss="modal">关闭
+				</button>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<!-- 模态框 -->	
+<!-- <div class="modal fade"  id="myModal" tabindex="-1"role="dialog" aria-labelledby="myModalLabel"  aria-hidden="true">-->
+<div class="modal fade myModal" id="myModalProjectAwards" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+
+	<div class="modal-dialog myModal-dialog" >
+		<div class="modal-content myModal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" 
+						aria-hidden="true">×
+				</button>
+				<h4 class="modal-title" id="myModalLabel">
+					项目获奖
+				</h4>
+			</div>
+			<div class="modal-body myModal-body">
+				<table id="projectAwards" name="projectAwards" class="table table-bordered table-hover">
+					<tr>
+						<td><input id="myModalProjectAwardsAllselect" type="checkbox"></td>
+						<td>时间</td>
+						<td>奖项名称</td>
+						<td>获奖等级</td>
+						<td>奖项等级</td>
+					</tr>
+					<tr id="myModalProjectAwardsTr0" name="myModalProjectAwardsTr">
+						<td><input no="myModalProjectAwardsTr0" name="myModalProjectAwardsSelect" type="checkbox"></td>
+						<td><input name="projectAwardsTime" type="date" class="form-control">
+						</td>
+						<td><input name="projectAwardsName"  class="form-control">
+						</td>
+						<td><select name="projectAwardsAwardLevel" class="form-control">
+							<option value="">请选择...</option>
+							<option value="1">国际级</option>
+							<option value="2">国家级</option>
+							<option value="3">省部级</option>
+							<option value="4">市厅级</option>
+							<option value="5">县局级</option>
+							<option value="6">校级</option>
+						</select>
+						</td>
+						<td>
+							<select name="projectAwardsLevel" class="form-control">
+								<option value="">请选择...</option>
+								<option value="1">特等奖</option>
+								<option value="2">一等奖</option>
+								<option value="3">二等奖</option>
+								<option value="4">三等奖</option>
+								<option value="5">优秀奖</option>
+								<option value="6">金奖</option>
+								<option value="7">银奖</option>
+								<option value="8">铜奖</option>
+								<option value="9">第一名</option>
+								<option value="10">第二名</option>
+								<option value="11">第三名</option>
+								<option value="12">第四名</option>
+								<option value="13">第五名</option>
+							</select>
+						</td>
+					</tr>
+				</table>
+							
+			</div>
+			<div class="modal-footer">
+				<button id="myModalProjectAwardsAdd" type="button" class="btn btn-success" >增加
+				</button>
+				<button id="myModalProjectAwardsDel" type="button" class="btn btn-danger" >删除
+				</button>
+				<button type="button" class="btn btn-default" 
+						data-dismiss="modal">关闭
+				</button>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<!-- 审批模态框 -->
+<!-- 模态框（Modal） -->
+<!-- <div class="modal fade" id="reviewModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+					&times;
+				</button>
+				<h4 class="modal-title" id="myModalLabel">
+					审批
+				</h4>
+			</div>
+			<div class="modal-body">
+				<table  class="table table-bordered table-hover">
+					<tr>
+						<td>项目名：</td>
+						<td><input class="form-control" id="modalProjectName" value=""></td>
+					</tr>
+					<tr>
+						<td>负责人：</td>
+						<td><input class="form-control" id="modalPrincipalName" value=""></td>
+					</tr>
+					<tr>
+						<td>是否同意：</td>
+						<td>同意：<input id="" name="isagree" class="btn-primary btn-lg" type="radio" value="1">
+						&emsp;&emsp;不同意：<input id="" name="isagree" class="btn-primary btn-lg" type="radio" value="2"></td>
+					</tr>
+					<tr>
+						<td>意见：</td>
+						<td><textarea class="form-control" id="modalOpinion" value=""></textarea></td>
+					</tr>
+				
+				</table>
+			
+			
+			</div>
+			<div class="modal-footer">
+				<button id="submitReview" type="button" class="btn btn-success" >提交审批
+				</button>
+				<button id="" type="button" class="btn btn-default" data-dismiss="modal">关闭
+				</button>
+			</div>
+		</div>/.modal-content
+	</div>/.modal
+</div> -->
+
+<!-- 模态框（Modal） -->
+<div class="modal fade" id="lookReviewModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header" style="background-color: #F3FCF5;">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+					&times;
+				</button>
+				<h4 class="modal-title" id="myModalLabel">
+					查看审批
+				</h4>
+			</div>
+			<div class="modal-body">
+				<table id="lookReviewTable" class="table table-bordered table-hover">
+					<tr>
+						<td>项目名：</td>
+						<td><input readonly="readonly" class="form-control" id="modalProjectName" value=""></td>
+					</tr>
+					<tr>
+						<td>负责人：</td>
+						<td><input readonly="readonly" class="form-control" id="modalPrincipalName" value=""></td>
+					</tr>
+				
+				</table>
+			
+			
+			</div>
+			<div class="modal-footer">
+			
+				<button id="submitReview" type="button" class="btn btn-success" >提交审批
+				</button>
+			
+				<button id="" type="button" class="btn btn-default" data-dismiss="modal">关闭
+				</button>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal -->
+</div>
+
+	<script src="${basePath}/js/jquery-3.2.1.min.js"></script>
+	<script src="${basePath}/js/bootstrap.min.js"></script>
+	<script src="${basePath}/js/choice.js" type="text/javascript"></script>
+	<script src="${basePath}/js/busStudentProjectInto.js" type="text/javascript"></script>
+	<script type="text/javascript">
+	
+	/////指导教师---->
+	var m=1;
+	$('#myModalAllTeacherAdd').unbind().click(function(){
+			var myModalAllTeacherTr = 'myModalAllTeacherTr'+m;
+			var $tr=$('<tr id="'+myModalAllTeacherTr+'" name="myModalAllTeacherTr"></tr>');
+			var $td1=$('<td><input no="'+myModalAllTeacherTr+'" name="myModalAllTeacherSelect" type="checkbox"></td>');
+			var $td2=$('<td><input name="teacherName" class="form-control"></td>');
+			var $td3=$('<td></td>');
+			var $select1=$('<select name="teacherSex" class="form-control"></select>');
+			var $option1=$('<option value="1">男</option>');
+			var $option2=$('<option value="2">女</option>');
+			var $td4=$('<td><input name="teacherClass" class="form-control"></td>');
+			var $td5=$('<td><input name="teacherPosition" class="form-control"></td>');
+			var $td6=$('<td></td>');
+			var $select2=$('<select name="teacherPositionCall" class="form-control"></select>');
+			var $option$1=$('<option value="">请选择...</option>');
+			var $option$2=$('<option value="1">正高级</option>');
+			var $option$3=$('<option value="2">副高级</option>');
+			var $option$4=$('<option value="3">中级</option>');
+			var $option$5=$('<option value="4">初级</option>');
+			var $option$6=$('<option value="5">无职称</option>');
+			var $td7=$('<td><input name="teacherPhoto" class="form-control"></td>');			
+			$('#myModalAllTeacher').append($tr.append($td1).append($td2).append($td3.append($select1.append($option1).append($option2))).append($td4).append($td5).append($td6.append($select2.append($option$1).append($option$2).append($option$3).append($option$4).append($option$5).append($option$6))).append($td7));
+			m++;
+		});
+	$('#myModalAllTeacherDel').unbind().click(function(){
+		$.each($('[name=myModalAllTeacherSelect]'),function(index,checkbox){
+			if($(checkbox).is(':checked')){
+				console.log($(checkbox).attr('no'));
+				$('#'+$(checkbox).attr('no')).remove();
+			}
+		});
+	});
+	$('#myModalAllTeacherAllSelect').unbind().change(function() {
+		if($(this).is(':checked')){
+			// 标题复选框选中，数据行复选框全部选中
+			$('[name=myModalAllTeacherSelect]').prop('checked',true);
+		} else {
+			// 标题复选框选中，数据行复选框全部取消选中
+			$('[name=myModalAllTeacherSelect]').prop('checked',false);
+		}
+	});
+	
+	/////指导教师<----
+	/////企业项目员工信息---->
+	var k=1;
+	$('#myModalPersonalAdd').unbind().click(function(){
+			var myModalPersonalTr = 'myModalPersonalTr'+k;
+			var $tr=$('<tr id="'+myModalPersonalTr+'" name="myModalPersonalTr"></tr>');
+			var $td1=$('<td><input no="'+myModalPersonalTr+'" name="myModalPersonalSelect" type="checkbox"></td>');
+			var $td2=$('<td></td>');
+			var $select1=$('<select name="personnelType" class="form-control"></select>');
+			var $option1=$('<option value="">请选择...</option>');
+			var $option2=$('<option value="1">全职</option>');
+			var $option3=$('<option value="2">兼职</option>');
+			var $td3=$('<td><input name="personnelName" class="form-control"></td>');			
+			var $td4=$('<td></td>');
+			var $select2=$('<select name="personnelSex" class="form-control"></select>');
+			var $option$1=$('<option value="1">男</option>');
+			var $option$2=$('<option value="2">女</option>');
+			var $td5=$('<td><input name="personnelClass" class="form-control"></td>');			
+			var $td6=$('<td><input name="personnelPosition" class="form-control"></td>');			
+			var $td7=$('<td><input name="personnelPhoto" class="form-control"></td>');			
+			$('#allTimePersonnel').append($tr.append($td1).append($td2.append($select1.append($option1).append($option2).append($option3))).append($td3).append($td4.append($select2.append($option$1).append($option$2))).append($td5).append($td6).append($td7));
+			
+			k++;
+		});
+	$('#myModalPersonalDel').unbind().click(function(){
+		console.log($('[name=myModalPersonalSelect]'));
+		$.each($('[name=myModalPersonalSelect]'),function(index,checkbox){
+			if($(checkbox).is(':checked')){
+				console.log($(checkbox).attr('no'));
+				$('#'+$(checkbox).attr('no')).remove();
+			}
+		});
+	});
+	$('#myModalPersonalAllSelect').unbind().change(function() {
+		if($(this).is(':checked')){
+			// 标题复选框选中，数据行复选框全部选中
+			$('[name=myModalPersonalSelect]').prop('checked',true);
+		} else {
+			// 标题复选框选中，数据行复选框全部取消选中
+			$('[name=myModalPersonalSelect]').prop('checked',false);
+		}
+	});
+	/////企业项目员工信息<----
+	/////资金收入---->
+	var i=1;
+	$('#myModalProjectSubsidyAdd').unbind().click(function(){
+			var myModalProjectSubsidyTr = 'myModalProjectSubsidyTr'+i;
+			var $tr=$('<tr id="'+myModalProjectSubsidyTr+'" name="myModalProjectSubsidyTr"></tr>');
+			var $td1=$('<td><input no="'+myModalProjectSubsidyTr+'" name="myModalProjectSubsidySelect" type="checkbox"></td>');
+			var $td2=$('<td></td>');
+			var $select = $('<select name="projectSubsidyType" class="form-control"></select>');
+			var $option1= $('<option value="">请选择...</option>');
+			var $option2= $('<option value="1">获得投资</option>');
+			var $option3= $('<option value="2">享受管理服务补助资金</option>');
+			var $option4= $('<option value="3">享受房租和宽带接入补助</option>');
+			var $option5= $('<option value="4">享受水电费补助</option>');
+			var $option6= $('<option value="5">享受一次性创业补贴</option>');
+			var $option7= $('<option value="6">享受吸纳就业困难群体一次性补助</option>');
+			var $option8= $('<option value="7">享受社会保险补贴</option>');
+			var $option9= $('<option value="8">获得创业担保贷款</option>');
+			var $td3=$('<td><input name="projectSubsidyTime" type="date" class="form-control"></td>');
+			var $td4=$('<td><input name="projectSubsidyForm"  class="form-control"></td>');
+			var $td5=$('<td><input name="projectSubsidyMoney"  class="form-control"></td>');
+			$('#ProjectSubsidy').append($tr.append($td1).append($td2.append($select.append($option1).append($option2).append($option3).append($option4).append($option5).append($option6).append($option7).append($option8).append($option9))).append($td3).append($td4).append($td5));
+			i++;
+		});
+	$('#myModalProjectSubsidyDel').unbind().click(function(){
+		console.log($('[name=myModalProjectSubsidySelect]'));
+		$.each($('[name=myModalProjectSubsidySelect]'),function(index,checkbox){
+			if($(checkbox).is(':checked')){
+				console.log($(checkbox).attr('no'));
+				$('#'+$(checkbox).attr('no')).remove();
+			}
+		});
+	});
+	$('#myModalProjectSubsidyAllSelect').unbind().change(function() {
+		if($(this).is(':checked')){
+			// 标题复选框选中，数据行复选框全部选中
+			$('[name=myModalProjectSubsidySelect]').prop('checked',true);
+		} else {
+			// 标题复选框选中，数据行复选框全部取消选中
+			$('[name=myModalProjectSubsidySelect]').prop('checked',false);
+		}
+	});
+	/////资金收入<---
+	/////项目获奖---->
+	var j=1;
+	$('#myModalProjectAwardsAdd').unbind().click(function(){
+		var myModalProjectAwardsTr = 'myModalProjectAwardsTr'+j;
+		var $tr=$('<tr id="'+myModalProjectAwardsTr+'" name="myModalProjectAwardsTr"></tr>');
+		var $td1 = $('<td><input no="'+myModalProjectAwardsTr+'" name="myModalProjectAwardsSelect" type="checkbox"></td>');
+		var $td2 = $('<td><input name="projectAwardsTime" type="date" class="form-control"></td>');
+		var $td3=$('<td><input name="projectAwardsName"  class="form-control"></td>');
+		var $td4=$('<td></td>');
+		var $select=$('<select name="projectAwardsAwardLevel" class="form-control"></select>');
+		var $option1=$('<option value="">请选择...</option>');
+		var $option2=$('<option value="1">国际级</option>');
+		var $option3=$('<option value="2">国家级</option>');
+		var $option4=$('<option value="3">省部级</option>');
+		var $option5=$('<option value="4">市厅级</option>');
+		var $option6=$('<option value="5">县局级</option>');
+		var $option7=$('<option value="6">校级</option>');
+		var $td5=$('<td></td>');	
+		var $select2=$('<select name="projectAwardsLevel" class="form-control"></select>');
+		var $option$1=$('<option value="">请选择...</option>');
+		var $option$2=$('<option value="1">特等奖</option>');
+		var $option$3=$('<option value="2">一等奖</option>');
+		var $option$4=$('<option value="3">二等奖</option>');
+		var $option$5=$('<option value="4">三等奖</option>');
+		var $option$6=$('<option value="5">优秀奖</option>');
+		var $option$7=$('<option value="6">金奖</option>');
+		var $option$8=$('<option value="7">银奖</option>');
+		var $option$9=$('<option value="8">铜奖</option>');
+		var $option$10=$('<option value="9">第一名</option>');
+		var $option$11=$('<option value="10">第二名</option>');
+		var $option$12=$('<option value="11">第三名</option>');
+		var $option$13=$('<option value="12">第四名</option>');
+		var $option$14=$('<option value="13">第五名</option>');
+		$('#projectAwards').append($tr.append($td1).append($td2).append($td3).append($td4.append($select.append($option1).append($option2).append($option3).append($option4).append($option5).append($option6).append($option7))).append($td5.append($select2.append($option$1).append($option$2).append($option$3).append($option$4).append($option$5).append($option$6).append($option$7).append($option$8).append($option$9).append($option$10).append($option$11).append($option$12).append($option$13).append($option$14))));
+
+			j++;
+		});
+	$('#myModalProjectAwardsDel').unbind().click(function(){
+		$.each($('[name=myModalProjectAwardsSelect]'),function(index,checkbox){
+			if($(checkbox).is(':checked')){
+				console.log($(checkbox).attr('no'));
+				$('#'+$(checkbox).attr('no')).remove();
+			}
+		});
+	});
+	$('#myModalProjectAwardsAllselect').unbind().change(function() {
+		if($(this).is(':checked')){
+			// 标题复选框选中，数据行复选框全部选中
+			$('[name=myModalProjectAwardsSelect]').prop('checked',true);
+		} else {
+			// 标题复选框选中，数据行复选框全部取消选中
+			$('[name=myModalProjectAwardsSelect]').prop('checked',false);
+		}
+	});
+	
+	
+	/////项目获奖<---
+	function openModal(indexaa){
+		$('#'+indexaa).modal('show');
+	}
+	</script>
+</div>
+
+</body>
+</html>
